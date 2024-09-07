@@ -1,4 +1,4 @@
-FROM ryukinix/pdm:3.11.2
+FROM ryukinix/pdm:3.11-slim
 
 COPY pyproject.toml setup.cfg pdm.lock /app/
 RUN --mount=type=cache,target=/root/.cache pdm install --no-self
