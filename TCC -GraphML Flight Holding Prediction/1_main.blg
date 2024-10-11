@@ -1,0 +1,79 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: 1_main.aux
+The style file: USPSC-classe/abntex2-alfeng-USPSC.bst
+A level-1 auxiliary file: Model/USPSC-TA-PreTextual/USPSC-fichacatalografica.aux
+A level-1 auxiliary file: 2_acknowledgments.aux
+A level-1 auxiliary file: Model/USPSC-TA-PreTextual/USPSC-Epigrafe.aux
+A level-1 auxiliary file: 3_abstract.aux
+A level-1 auxiliary file: 3.2_resumo.aux
+A level-1 auxiliary file: USPSC-AbreviaturasSiglas.aux
+A level-1 auxiliary file: 4_introduction.aux
+A level-1 auxiliary file: 5_problem_description.aux
+A level-1 auxiliary file: 6_materialsAndMethods.aux
+A level-1 auxiliary file: 7_results.aux
+A level-1 auxiliary file: 8_conclusion.aux
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Database file #1: abntex2-options.bib
+Database file #2: 8_references.bib
+Warning--I didn't find a database entry for "abnt-etal-cite"
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Warning--campo year vazio ou faltando em nasa
++---------------------------------------------------------+
+| Estilo bibliográfico abntex2-alf.bst versão v-1.9.7           |
+| Em caso de dúvidas ou problemas com este estilo procure |
+| http://www.abntex.net.br/                               |
++---------------------------------------------------------+
+You've used 43 entries,
+            6714 wiz_defined-function locations,
+            1449 strings with 18440 characters,
+and the built_in function-call counts, 51667 in all, are:
+= -- 5438
+> -- 1282
+< -- 995
++ -- 1459
+- -- 376
+* -- 3458
+:= -- 6261
+add.period$ -- 147
+call.type$ -- 45
+change.case$ -- 452
+chr.to.int$ -- 99
+cite$ -- 33
+duplicate$ -- 4226
+empty$ -- 2590
+format.name$ -- 1840
+if$ -- 11141
+int.to.chr$ -- 11
+int.to.str$ -- 1
+missing$ -- 692
+newline$ -- 181
+num.names$ -- 163
+pop$ -- 824
+preamble$ -- 1
+purify$ -- 180
+quote$ -- 0
+skip$ -- 4815
+stack$ -- 1
+substring$ -- 2338
+swap$ -- 1708
+text.length$ -- 73
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 10
+warning$ -- 1
+while$ -- 272
+width$ -- 0
+write$ -- 554
+(There were 2 warnings)

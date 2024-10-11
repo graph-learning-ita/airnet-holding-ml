@@ -1,0 +1,65 @@
+\changetocdepth {4}
+\babel@toc {brazil}{}
+\babel@toc {english}{}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Introduction}}{12}{chapter.1}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Problem Description}}{16}{chapter.2}%
+\contentsline {section}{\numberline {2.1}MAPF as a multi-commodity Network Flow Problem}{17}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Time-Expanded Network}{17}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Multi-Commodity Flow Formulation}{18}{subsection.2.1.2}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Materials and Methods}}{19}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Mathematical Model}{19}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Graph Modeling}{19}{subsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.1.1}Virtual Nodes for Drones}{20}{subsubsection.3.1.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.1.2}Drone Loitering}{21}{subsubsection.3.1.1.2}%
+\contentsline {subsection}{\numberline {3.1.2}Parameters}{21}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Indices}{22}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Decision Variables}{22}{subsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.1.5}Objective Function}{22}{subsection.3.1.5}%
+\contentsline {subsection}{\numberline {3.1.6}Constraints}{22}{subsection.3.1.6}%
+\contentsline {subsubsection}{\numberline {3.1.6.1}Movement Start}{22}{subsubsection.3.1.6.1}%
+\contentsline {subsubsection}{\numberline {3.1.6.2}Flow Conservation}{22}{subsubsection.3.1.6.2}%
+\contentsline {subsubsection}{\numberline {3.1.6.3}Border Condition}{23}{subsubsection.3.1.6.3}%
+\contentsline {subsubsection}{\numberline {3.1.6.4}Mutual exclusion of vertex occupation}{23}{subsubsection.3.1.6.4}%
+\contentsline {subsubsection}{\numberline {3.1.6.5}Mission Accomplishment}{23}{subsubsection.3.1.6.5}%
+\contentsline {section}{\numberline {3.2}Heuristic}{23}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Example}{27}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Complexity Analysis and Boundedness}{28}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Adaptability for 3D}{29}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Hybrid Methodology}{29}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Algorithm Overview}{29}{subsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.1.1}Heuristic Solution Generation}{29}{subsubsection.3.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.3.1.2}MILP Model Refinement}{29}{subsubsection.3.3.1.2}%
+\contentsline {subsection}{\numberline {3.3.2}Advantages and Considerations}{30}{subsection.3.3.2}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Results}}{31}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Experimental Setup and Technologies}{31}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Heuristic Implementation in C\texttt {++}}{31}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Exact Model Implementation in Julia}{31}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Experimentation and Analysis}{32}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}Drone Generation}{32}{subsection.4.1.4}%
+\contentsline {section}{\numberline {4.2}Models Comparison}{32}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Objective Function Performance}{32}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Computational Efficiency}{34}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Heuristic Behavior and Transition}{35}{subsection.4.2.3}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Conclusion}}{38}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Summary of the Project and Objectives}{38}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Main Findings and Results}{38}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Contributions to the Field and Implications}{38}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Decentralized vs Centralized}{39}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Limitations and Future Research Directions}{39}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Limitations}{39}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Future Research}{40}{subsection.5.5.2}%
+\contentsline {section}{\numberline {5.6}Project contributions to the student}{40}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Relation between the undergraduate course and the project}{41}{section.5.7}%
+\vspace {\cftbeforechapterskip }
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\contentsline {chapter}{\uppercase {References}}{42}{section*.27}%

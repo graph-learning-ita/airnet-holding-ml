@@ -1,0 +1,13 @@
+\babel@toc {brazil}{}
+\babel@toc {english}{}
+\contentsline {figure}{\numberline {1}{\ignorespaces Time-expanded network representation}}{17}{figure.caption.13}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Equivalence of MAPF to multi-commodity network flow (sourced from \citeonline {time_optimal_slides})\relax }}{18}{figure.caption.14}%
+\contentsline {figure}{\numberline {3}{\ignorespaces graph modelling}}{20}{figure.caption.15}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Algorithm visualization. Source: The authors.\relax }}{27}{figure.caption.17}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Worst case path.\relax }}{28}{figure.caption.18}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Exact Model Objective. Source: The authors.\relax }}{33}{figure.caption.19}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Heuristic Objective. Source: The authors.\relax }}{34}{figure.caption.20}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Exact Model time. Source: The authors.\relax }}{35}{figure.caption.21}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Heuristic time. Source: The authors.\relax }}{35}{figure.caption.22}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Heuristic normalized distance per drone. Source: The authors.\relax }}{36}{figure.caption.23}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Heuristic Routing Time ($T$) corresponding to Figure \ref {fig:heuristic_normalized_dist}. Source: The authors.\relax }}{37}{figure.caption.24}%

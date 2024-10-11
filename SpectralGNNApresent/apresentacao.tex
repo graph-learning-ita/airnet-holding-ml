@@ -1,0 +1,116 @@
+\documentclass[aspectratio=169,dvipsnames]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx,hyperref,icmc,url}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{minted}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{array}
+\usepackage{xcolor, soul}  
+\usepackage{mathtools}
+
+
+\usepackage{listings}% http://ctan.org/pkg/listings
+\usepackage{graphbox}
+\usepackage{booktabs}
+\usepackage{aircraftshapes}
+\newcommand{\destaq}[1]{\textcolor{BlueViolet}{\textbf{#1}}}
+\newcommand\todo[1]{\colorbox{green}{#1}}
+
+\definecolor{greenMW}{rgb}{0.0, 0.75, 0.0} % Define the greenMW color
+\definecolor{orange}{rgb}{1.0, 0.65, 0.0} % Define the orange color
+\definecolor{blue}{rgb}{0.0, 0.0, 1.0} % Define the blue color
+
+
+% The title of the presentation:
+%  - first a short version which is visible at the bottom of each slide;
+%  - second the full title shown on the title slide;
+\title[GraphML for Flight Delay Prediction due to Holding Manouver
+]{GraphML for Flight Delay Prediction due to Holding Manouver
+}
+
+% Optional: a subtitle to be displayed on the title slide
+
+
+% The author(s) of the presentation:
+%  - again first a short version to be displayed at the bottom;
+%  - next the full list of authors, which may include contact information;
+\author[Jorge Luiz Franco]{Jorge Luiz Franco\\ \bigskip
+\textsc{Undergraduate Program in Computer Science}\\ \bigskip
+Advisor: Prof. Filipe Alves Neto Verri, Ph.D.}
+
+% \\ \bigskip
+    % \large{}
+
+% The institute:
+%  - to start the name of the university as displayed on the top of each slide
+%    this can be adjusted such that you can also create a Dutch version
+%  - next the institute information as displayed on the title slide
+\institute[ICMC/USP]{Universidade de São Paulo - ICMC}
+
+% Add a date and possibly the name of the event to the slides
+%  - again first a short version to be shown at the bottom of each slide
+%  - second the full date and event name for the title slide
+\date[2024]{\footnotesize{June 17, 2024}}
+
+\sloppy
+
+\AtBeginSection[]
+{
+    \begin{frame}<beamer>{Summary}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+
+\begin{document}
+    
+    \begin{frame}[plain]
+        \titlepage
+    \end{frame}
+    
+    \begin{frame}
+      \frametitle{Summary}
+      \tableofcontents
+    \end{frame}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Introduction
+% Materials and Methods
+%   Datasets
+%   MST
+%   OPF
+% Experiments
+%   Initial
+%   DTW
+%   Pruning and Improvements
+%   Batch-Tests
+%   Results
+%   Difficulties, limitations, and future works
+
+\include{tex/01-intro}
+
+\include{tex/02-problem_description}
+
+\include{tex/03-methods}
+
+
+\include{tex/04-results}
+
+\include{tex/05-conclusion_future}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{References}
+
+% \nocite{*}
+\begin{frame}[allowframebreaks]
+  \frametitle{References}
+  \bibliographystyle{siam}
+  
+  \bibliography{refs.bib}
+\end{frame}
+
+\end{document}
