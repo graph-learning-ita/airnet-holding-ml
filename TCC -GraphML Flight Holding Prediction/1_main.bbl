@@ -5,251 +5,90 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v-1.9.7 }
 
-\bibitem[Ahmadi, Wicaksono and Valilai 2021]{9672856}
-\abntrefinfo{Ahmadi, Wicaksono and Valilai}{AHMADI; WICAKSONO; VALILAI}{2021}
-{AHMADI, E.; WICAKSONO, H.; VALILAI, O.~F. Extending the last mile delivery
-  routing problem for enhancing sustainability by drones using a sentiment
-  analysis approach. \textit{In}:  \textbf{2021 IEEE International Conference
-  on Industrial Engineering and Engineering Management (IEEM)}. [\textit{S.l.:
-  s.n.}], 2021. p. 207--212.}
+\bibitem[Amancio \textit{et al.} 2014]{amanciof}
+\abntrefinfo{Amancio \textit{et al.}}{AMANCIO \textit{et al.}}{2014}
+{AMANCIO, D.~R. \textit{et al.} A systematic comparison of supervised
+  classifiers.
+\textbf{PLOS ONE}, Public Library of Science, v.~9, n.~4, p. 1--14, 04 2014.
+Available at: \url{https://doi.org/10.1371/journal.pone.0094137}.}
 
-\bibitem[Akamatsu and Wada 2017]{AKAMATSU2017178}
-\abntrefinfo{Akamatsu and Wada}{AKAMATSU; WADA}{2017}
-{AKAMATSU, T.; WADA, K. Tradable network permits: A new scheme for the most
-  efficient use of network capacity.
-\textbf{Transportation Research Part C: Emerging Technologies}, v.~79, p.
-  178--195, 2017.
-ISSN 0968-090X.
-Available at:
-  \url{https://www.sciencedirect.com/science/article/pii/S0968090X17300839}.}
+\bibitem[Bo \textit{et al.} 2023]{bo2023surveyspectralgraphneural}
+\abntrefinfo{Bo \textit{et al.}}{BO \textit{et al.}}{2023}
+{BO, D. \textit{et al.} \textbf{A Survey on Spectral Graph Neural Networks}.
+  2023.
+Available at: \url{https://arxiv.org/abs/2302.05631}.}
 
-\bibitem[Boysen, Fedtke and Schwerdfeger 2021]{boysen2021lastmile}
-\abntrefinfo{Boysen, Fedtke and Schwerdfeger}{BOYSEN; FEDTKE;
-  SCHWERDFEGER}{2021}
-{BOYSEN, N.; FEDTKE, S.; SCHWERDFEGER, S. Last-mile delivery concepts: a survey
-  from an operational research perspective.
-\textbf{OR Spectrum}, v.~43, p. 1--58, 2021.
-Available at: \url{https://doi.org/10.1007/s00291-020-00607-8}.}
+\bibitem[Bruna \textit{et al.} 2013]{bruna2013spectral}
+\abntrefinfo{Bruna \textit{et al.}}{BRUNA \textit{et al.}}{2013}
+{BRUNA, J. \textit{et al.} Spectral networks and locally connected networks on
+  graphs.
+\textbf{arXiv preprint arXiv:1312.6203}, 2013.}
 
-\bibitem[Bruni, Khodaparasti and Perboli 2023]{10049551}
-\abntrefinfo{Bruni, Khodaparasti and Perboli}{BRUNI; KHODAPARASTI;
-  PERBOLI}{2023}
-{BRUNI, M.~E.; KHODAPARASTI, S.; PERBOLI, G. Energy efficient uav-based
-  last-mile delivery: A tactical-operational model with shared depots and
-  non-linear energy consumption.
-\textbf{IEEE Access}, v.~11, p. 18560--18570, 2023.}
+\bibitem[Chami \textit{et al.} 2022]{JMLR:Perozzi}
+\abntrefinfo{Chami \textit{et al.}}{CHAMI \textit{et al.}}{2022}
+{CHAMI, I. \textit{et al.} Machine learning on graphs: A model and
+  comprehensive taxonomy.
+\textbf{Journal of Machine Learning Research}, v.~23, n.~89, p. 1--64, 2022.
+Available at: \url{http://jmlr.org/papers/v23/20-852.html}.}
 
-\bibitem[Dukkanci, Campbell and Kara 2023]{DUKKANCI2023}
-\abntrefinfo{Dukkanci, Campbell and Kara}{DUKKANCI; CAMPBELL; KARA}{2023}
-{DUKKANCI, O.; CAMPBELL, J.~F.; KARA, B.~Y. Facility location decisions for
-  drone delivery: A literature review.
-\textbf{European Journal of Operational Research}, 2023.
-ISSN 0377-2217.
-Available at:
-  \url{https://www.sciencedirect.com/science/article/pii/S0377221723008123}.}
+\bibitem[Costa 2007]{costa2007characterization}
+\abntrefinfo{Costa}{COSTA}{2007}
+{COSTA, L. d.~F. Characterization of complex networks: A survey of
+  measurements.
+\textbf{Advances in physics}, Taylor \& Francis, v.~56, n.~1, p. 167--242,
+  2007.}
 
-\bibitem[Faiçal \textit{et al.} 2023]{faical}
-\abntrefinfo{Faiçal \textit{et al.}}{FAIçAL \textit{et al.}}{2023}
-{FAIçAL, B.~S. \textit{et al.} A cyber-physical system's roadmap to last-mile
-  delivery drones.
-\textbf{IEEE Aerospace and Electronic Systems Magazine}, v.~38, n.~5, p. 6--16,
-  2023.}
+\bibitem[Grover and Leskovec 2016]{grover2016node2vec}
+\abntrefinfo{Grover and Leskovec}{GROVER; LESKOVEC}{2016}
+{GROVER, A.; LESKOVEC, J. node2vec: Scalable feature learning for networks.
+  \textit{In}:  \textbf{Proceedings of the 22nd ACM SIGKDD international
+  conference on Knowledge discovery and data mining}. [\textit{S.l.: s.n.}],
+  2016. p. 855--864.}
 
-\bibitem[Freitas, Penna and Toffolo 2023]{FREITAS2023100094}
-\abntrefinfo{Freitas, Penna and Toffolo}{FREITAS; PENNA; TOFFOLO}{2023}
-{FREITAS, J.~C.; PENNA, P. H.~V.; TOFFOLO, T.~A. Exact and heuristic approaches
-  to truck–drone delivery problems.
-\textbf{EURO Journal on Transportation and Logistics}, v.~12, p. 100094, 2023.
-ISSN 2192-4376.
-Available at:
-  \url{https://www.sciencedirect.com/science/article/pii/S219243762200019X}.}
+\bibitem[Hamilton, Ying and Leskovec 2017]{hamilton2017inductive}
+\abntrefinfo{Hamilton, Ying and Leskovec}{HAMILTON; YING; LESKOVEC}{2017}
+{HAMILTON, W.; YING, Z.; LESKOVEC, J. Inductive representation learning on
+  large graphs.
+\textbf{Advances in neural information processing systems}, v.~30, 2017.}
 
-\bibitem[Geft 2023]{geft2023finegrained}
-\abntrefinfo{Geft}{GEFT}{2023}
-{GEFT, T. Fine-grained complexity analysis of multi-agent path finding on 2d
-  grids.
-\textbf{Proceedings of the Sixteenth International Symposium on Combinatorial
-  Search}, v.~16, n.~1, 2023.
-Available at: \url{https://doi.org/10.1609/socs.v16i1.27279}.}
+\bibitem[Kipf and Welling 2016]{kipf2016semi}
+\abntrefinfo{Kipf and Welling}{KIPF; WELLING}{2016}
+{KIPF, T.~N.; WELLING, M. Semi-supervised classification with graph
+  convolutional networks.
+\textbf{arXiv preprint arXiv:1609.02907}, 2016.}
 
-\bibitem[Gordon, Filmus and Salzman 2021]{DBLP:conf/socs/GordonFS21}
-\abntrefinfo{Gordon, Filmus and Salzman}{GORDON; FILMUS; SALZMAN}{2021}
-{GORDON, O.; FILMUS, Y.; SALZMAN, O. Revisiting the complexity analysis of
-  conflict-based search: New computational techniques and improved bounds.
-  \textit{In}:  MA, H.; SERINA, I. (ed.). \textbf{Proceedings of the Fourteenth
-  International Symposium on Combinatorial Search, {SOCS} 2021, Virtual
-  Conference [Jinan, China], July 26-30, 2021}. {AAAI} Press, 2021. p. 64--72.
-  Available at: \url{https://doi.org/10.1609/socs.v12i1.18552}.}
+\bibitem[Perozzi, Al-Rfou and Skiena 2014]{perozzi2014deepwalk}
+\abntrefinfo{Perozzi, Al-Rfou and Skiena}{PEROZZI; AL-RFOU; SKIENA}{2014}
+{PEROZZI, B.; AL-RFOU, R.; SKIENA, S. Deepwalk: Online learning of social
+  representations. \textit{In}:  \textbf{Proceedings of the 20th ACM SIGKDD
+  international conference on Knowledge discovery and data mining}.
+  [\textit{S.l.: s.n.}], 2014. p. 701--710.}
 
-\bibitem[Hayat \textit{et al.} 2020]{hayat2020multi}
-\abntrefinfo{Hayat \textit{et al.}}{HAYAT \textit{et al.}}{2020}
-{HAYAT, S. \textit{et al.} Multi-objective drone path planning for search and
-  rescue with quality-of-service requirements.
-\textbf{Autonomous Robots}, Springer, v.~44, p. 1183--1198, 2020.}
+\bibitem[Silva and Zhao 2016]{silva2016machine}
+\abntrefinfo{Silva and Zhao}{SILVA; ZHAO}{2016}
+{SILVA, T.; ZHAO, L. \textbf{Machine Learning in Complex Networks}. Springer
+  International Publishing, 2016.
+ISBN 9783319172897. Available at:
+  \url{https://books.google.com.br/books?id=WdDurQEACAAJ}.}
 
-\bibitem[Lam \textit{et al.} 2019]{BCPijcai2019}
-\abntrefinfo{Lam \textit{et al.}}{LAM \textit{et al.}}{2019}
-{LAM, E. \textit{et al.} Branch-and-cut-and-price for multi-agent pathfinding.
-  \textit{In}:  \textbf{Proceedings of the Twenty-Eighth International Joint
-  Conference on Artificial Intelligence, {IJCAI-19}}. International Joint
-  Conferences on Artificial Intelligence Organization, 2019. p. 1289--1296.
-  Available at: \url{https://doi.org/10.24963/ijcai.2019/179}.}
+\bibitem[Verri, Urio and Zhao 2018]{verri2018advantages}
+\abntrefinfo{Verri, Urio and Zhao}{VERRI; URIO; ZHAO}{2018}
+{VERRI, F. A.~N.; URIO, P.~R.; ZHAO, L. Advantages of edge-centric collective
+  dynamics in machine learning tasks.
+\textbf{Journal of Applied Nonlinear Dynamics}, L\&H Scientific Publishing,
+  v.~7, n.~3, p. 269--285, 2018.}
 
-\bibitem[Lee and Wong 2022]{lee2022last}
-\abntrefinfo{Lee and Wong}{LEE; WONG}{2022}
-{LEE, C.-W.; WONG, W.-P. Last-mile drone delivery combinatorial double auction
-  model using multi-objective evolutionary algorithms.
-\textbf{Soft Computing}, Springer, v.~26, p. 12355--12384, 2022.
-Available at: \url{https://doi.org/10.1007/s00500-022-07094-9}.}
+\bibitem[Verri and Zhao 2013]{verri2013}
+\abntrefinfo{Verri and Zhao}{VERRI; ZHAO}{2013}
+{VERRI, F. A.~N.; ZHAO, L. High level data classification based on network
+  entropy. \textit{In}:  \textbf{The 2013 International Joint Conference on
+  Neural Networks (IJCNN)}. [\textit{S.l.: s.n.}], 2013. p.~1--5.}
 
-\bibitem[Lieb and Volkert 2020]{9256745}
-\abntrefinfo{Lieb and Volkert}{LIEB; VOLKERT}{2020}
-{LIEB, J.; VOLKERT, A. Unmanned aircraft systems traffic management: A
-  comparsion on the faa utm and the european corus conops based on u-space.
-  \textit{In}:  \textbf{2020 AIAA/IEEE 39th Digital Avionics Systems Conference
-  (DASC)}. [\textit{S.l.: s.n.}], 2020. p.~1--6.}
-
-\bibitem[Lubin \textit{et al.} 2023]{JuMPLubin2023}
-\abntrefinfo{Lubin \textit{et al.}}{LUBIN \textit{et al.}}{2023}
-{LUBIN, M. \textit{et al.} {JuMP} 1.0: {R}ecent improvements to a modeling
-  language for mathematical optimization.
-\textbf{Mathematical Programming Computation}, 2023.}
-
-\bibitem[Luo \textit{et al.} 2022]{9580555}
-\abntrefinfo{Luo \textit{et al.}}{LUO \textit{et al.}}{2022}
-{LUO, Q. \textit{et al.} Hybrid multi-objective optimization approach with
-  pareto local search for collaborative truck-drone routing problems
-  considering flexible time windows.
-\textbf{IEEE Transactions on Intelligent Transportation Systems}, v.~23, n.~8,
-  p. 13011--13025, 2022.}
-
-\bibitem[Ma \textit{et al.} 2019]{ma2019searching}
-\abntrefinfo{Ma \textit{et al.}}{MA \textit{et al.}}{2019}
-{MA, H. \textit{et al.} Searching with consistent prioritization for
-  multi-agent path finding. \textit{In}:  \textbf{Proceedings of the AAAI
-  conference on artificial intelligence}. [\textit{S.l.: s.n.}], 2019. v.~33,
-  n.~01, p. 7643--7650.}
-
-\bibitem[Moshref-Javadi, Hemmati and Winkenbach 2020]{MOSHREFJAVADI2020290}
-\abntrefinfo{Moshref-Javadi, Hemmati and Winkenbach}{MOSHREF-JAVADI; HEMMATI;
-  WINKENBACH}{2020}
-{MOSHREF-JAVADI, M.; HEMMATI, A.; WINKENBACH, M. A truck and drones model for
-  last-mile delivery: A mathematical model and heuristic approach.
-\textbf{Applied Mathematical Modelling}, v.~80, p. 290--318, 2020.
-ISSN 0307-904X.
-Available at:
-  \url{https://www.sciencedirect.com/science/article/pii/S0307904X19306936}.}
-
-\bibitem[Nebel 2020]{Nebel_2020}
-\abntrefinfo{Nebel}{NEBEL}{2020}
-{NEBEL, B. On the computational complexity of multi-agent pathfinding on
-  directed graphs.
-\textbf{Proceedings of the International Conference on Automated Planning and
-  Scheduling}, v.~30, n.~1, p. 212--216, Jun. 2020.
-Available at: \url{https://ojs.aaai.org/index.php/ICAPS/article/view/6663}.}
-
-\bibitem[Nur \textit{et al.} 2020]{farjana2020last}
-\abntrefinfo{Nur \textit{et al.}}{NUR \textit{et al.}}{2020}
-{NUR, F. \textit{et al.} Last mile delivery drone selection and evaluation
-  using the interval-valued inferential fuzzy topsis.
-\textbf{Journal of Computational Design and Engineering}, v.~7, n.~4, p.
-  397--411, August 2020.}
-
-\bibitem[Prevot \textit{et al.}]{nasa}
-\abntrefinfo{Prevot \textit{et al.}}{PREVOT \textit{et al.}}{}
-{PREVOT, T. \textit{et al.} Uas traffic management (utm) concept of operations
-  to safely enable low altitude flight operations.
-\textit{In}:  \underline{\ \ \ \ \ \ \ \ }. \textbf{16th AIAA Aviation
-  Technology, Integration, and Operations Conference}. [\textit{S.l.: s.n.}].
-Available at: \url{https://arc.aiaa.org/doi/abs/10.2514/6.2016-3292}.}
-
-\bibitem[Rinaldi \textit{et al.} 2023]{drones7070407}
-\abntrefinfo{Rinaldi \textit{et al.}}{RINALDI \textit{et al.}}{2023}
-{RINALDI, M. \textit{et al.} Development of heuristic approaches for last-mile
-  delivery tsp with a truck and multiple drones.
-\textbf{Drones}, v.~7, n.~7, 2023.
-ISSN 2504-446X.
-Available at: \url{https://www.mdpi.com/2504-446X/7/7/407}.}
-
-\bibitem[Sharon \textit{et al.} 2015]{SHARON201540}
-\abntrefinfo{Sharon \textit{et al.}}{SHARON \textit{et al.}}{2015}
-{SHARON, G. \textit{et al.} Conflict-based search for optimal multi-agent
-  pathfinding.
-\textbf{Artificial Intelligence}, v.~219, p. 40--66, 2015.
-ISSN 0004-3702.
-Available at:
-  \url{https://www.sciencedirect.com/science/article/pii/S0004370214001386}.}
-
-\bibitem[Stern \textit{et al.} 2019]{stern2019multi}
-\abntrefinfo{Stern \textit{et al.}}{STERN \textit{et al.}}{2019}
-{STERN, R. \textit{et al.} Multi-agent pathfinding: Definitions, variants, and
-  benchmarks. \textit{In}:  \textbf{Proceedings of the International Symposium
-  on Combinatorial Search}. [\textit{S.l.: s.n.}], 2019. v.~10, n.~1, p.
-  151--158.}
-
-\bibitem[Surynek 2022]{ijcai2022p0783}
-\abntrefinfo{Surynek}{SURYNEK}{2022}
-{SURYNEK, P. Problem compilation for multi-agent path finding: a survey.
-  \textit{In}:  RAEDT, L.~D. (ed.). \textbf{Proceedings of the Thirty-First
-  International Joint Conference on Artificial Intelligence, {IJCAI-22}}.
-  International Joint Conferences on Artificial Intelligence Organization,
-  2022. p. 5615--5622. Survey Track. Available at:
-  \url{https://doi.org/10.24963/ijcai.2022/783}.}
-
-\bibitem[Verri \textit{et al.} 2020]{Verri}
-\abntrefinfo{Verri \textit{et al.}}{VERRI \textit{et al.}}{2020}
-{VERRI, F. A.~N. \textit{et al.} An analysis on tradable permit models for
-  last-mile delivery drones.
-\textbf{IEEE Access}, v.~8, p. 186279--186290, 2020.}
-
-\bibitem[Weise and Mostaghim 2023]{Weise2023}
-\abntrefinfo{Weise and Mostaghim}{WEISE; MOSTAGHIM}{2023}
-{WEISE, J.; MOSTAGHIM, S. A comparison of distance metrics for the
-  multi-objective pathfinding problem.
-\textbf{Natural Computing}, v.~22, p. 315--328, 2023.}
-
-\bibitem[Xiao \textit{et al.} 2023]{gnn_policyXIAO2023119074}
-\abntrefinfo{Xiao \textit{et al.}}{XIAO \textit{et al.}}{2023}
-{XIAO, J. \textit{et al.} A graph neural network based deep reinforcement
-  learning algorithm for multi-agent leader-follower flocking.
-\textbf{Information Sciences}, v.~641, p. 119074, 2023.
-ISSN 0020-0255.
-Available at:
-  \url{https://www.sciencedirect.com/science/article/pii/S002002552300659X}.}
-
-\bibitem[Yu and LaValle 2012]{time_optimal_slides}
-\abntrefinfo{Yu and LaValle}{YU; LAVALLE}{2012a}
-{YU, J.; LAVALLE. \textbf{Time-Optimal Multi-Agent Path Finding}. 2012.
-Available at: \url{https://movingai.com/mapf/slides/time-optimal.pdf}.}
-
-\bibitem[Yu and LaValle 2012]{yu_timeoptimal}
-\abntrefinfo{Yu and LaValle}{YU; LAVALLE}{2012b}
-{YU, J.; LAVALLE, S. Time optimal multi-agent path planning on graphs.
-  \textit{In}:  . [\textit{S.l.: s.n.}], 2012. p. 58--59. 2012 AAAI Workshop ;
-  Conference date: 22-07-2012 Through 22-07-2012.}
-
-\bibitem[Yu and LaValle 2013]{lavalle}
-\abntrefinfo{Yu and LaValle}{YU; LAVALLE}{2013}
-{YU, J.; LAVALLE, S.~M. Multi-agent path planning and network flow.
-  \textit{In}:  FRAZZOLI, E. \textit{et al.} (ed.). \textbf{Algorithmic
-  Foundations of Robotics X}. Berlin, Heidelberg: Springer Berlin Heidelberg,
-  2013. p. 157--173.
-ISBN 978-3-642-36279-8.}
-
-\bibitem[Zhang \textit{et al.} 2022]{ZHANG2022108679}
-\abntrefinfo{Zhang \textit{et al.}}{ZHANG \textit{et al.}}{2022}
-{ZHANG, S. \textit{et al.} A novel multi-objective optimization model for the
-  vehicle routing problem with drone delivery and dynamic flight endurance.
-\textbf{Computers \& Industrial Engineering}, v.~173, p. 108679, 2022.
-ISSN 0360-8352.
-Available at:
-  \url{https://www.sciencedirect.com/science/article/pii/S0360835222006672}.}
-
-\bibitem[Čáp \textit{et al.} 2015]{7138650}
-\abntrefinfo{Čáp \textit{et al.}}{ČáP \textit{et al.}}{2015}
-{ČáP, M. \textit{et al.} Prioritized planning algorithms for trajectory
-  coordination of multiple mobile robots.
-\textbf{IEEE Transactions on Automation Science and Engineering}, v.~12, n.~3,
-  p. 835--849, 2015.}
+\bibitem[You \textit{et al.} 2020]{grape2020}
+\abntrefinfo{You \textit{et al.}}{YOU \textit{et al.}}{2020}
+{YOU, J. \textit{et al.} Handling missing data with graph representation
+  learning.
+\textbf{Advances in Neural Information Processing Systems}, v.~33, p.
+  19075--19087, 2020.}
 
 \end{thebibliography}

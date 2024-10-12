@@ -1,43 +1,18 @@
 \chapter[Materials and Methods]{Materials and Methods}
 \label{Materials}
 
-In this chapter, we present in the first two sections the methodologies of both methods we used to solve the LMDD problem. Further, we present the hybrid method, that unifies both approaches.
-
-\input{6.1_mathematical_model}
-
-\input{6.2_heuristic}
+Our data is a lot imbalanced, but there is little work on imbalanced data in the literature for graph machine learning and most of the work is based on oversampling (\cite{GraphSmote} GRAPH SMOTE), however current literature shows that oversampling can lead to overfitting and poor generalization. In this work, we will deal with class imbalancing using undersampling for the GAT.  
 
 
-\section{Hybrid Methodology}
-\label{Hybrid_Methodology}
+% In this chapter, we present in the first two sections the methodologies of both methods we used to solve the LMDD problem. Further, we present the hybrid method, that unifies both approaches.
 
-In this section, we propose a hybrid approach to solve the problem. Our hybrid methodology combines the strengths of both the heuristic approach presented in Section \ref{Heuristic} and the MILP model outlined in Section \ref{Mathematical_Model}. By leveraging the efficiency of the heuristic to quickly generate a feasible solution and then refining it using the exact model, we aim to achieve a balance between computational speed and solution optimality.
+% \input{6.1_mathematical_model}
 
-\subsection{Algorithm Overview}
+% \input{6.2_heuristic}
 
-We can outline the hybrid method sequentially. The methodology proceeds through the following steps:
 
-\subsubsection{Heuristic Solution Generation}
-
-The first step involves employing the heuristic algorithm to generate an initial feasible solution. The heuristic algorithm determines the time horizon $T_{\text{heuristic}}$ and computes paths for drones based on their initial positions and problem parameters.
-
-\subsubsection{MILP Model Refinement}
-
-Once the heuristic completes its execution, we utilize the time horizon $T_{\text{heuristic}}$ along with the initial drone positions and grid size parameters as input to the MILP model. Also, we modify the initial model variables to be the initial feasible point found by the heuristic, that is, the solver will already start the search in a local optimum point. The MILP model refines the solution within the time frame $T_{\text{heuristic}}$, ensuring optimality while maintaining computational efficiency.
-
-\subsection{Advantages and Considerations}
-
-The hybrid methodology offers several advantages:
-
-\begin{itemize}
-  \item \textbf{Computational Efficiency}: Leveraging the heuristic for initial solution generation reduces computational time compared to relying solely on the MILP model. Since we would have no warm start and would need to start with a guessed $T$, that in general would be high.
-  \item \textbf{Global Optimality}: Refinement using the MILP model ensures the final solution achieves global optimality.
-  \item \textbf{Flexibility and Adaptability}: Dynamic integration of the heuristic and MILP model allows for handling diverse problem instances and adapting to varying computational resources.
-\end{itemize}
-
-The main reason, that makes the hybrid method an useful one, is that we can skip the part where we need to determine $T$. Since, using just the MILP model we would need to test lots of $T_s$ to determine which one    to use, for each $T$ we would need to solve an other instance of the problem and when finding a infeasible solution return $(T+1)$. A simple algorithm would be: \mintinline{cpp}{while(T--){ if(is_infeasible(T) return T+1;}}, for a high guess of T, that is, in the worst case we would solve $\mathcal{O}(T)$ instances of the mathematical model, which is expensive. When we get the $T$ from the heuristic we guarantee the MILP solver search to be in a plausible $T$ close to the optimal.
-
-However, potential trade-offs include computational complexity and the need for careful validation and testing. The success of the hybrid methodology relies on the synergy between the heuristic and MILP model components.  Although in this work we do not experiment the hybrid method, in Section \ref{sec:transition} we show that using $T_{\text{heuristic}}$ as a guess $T$ for the exact model is reasonable, since $T$ is linear in the number of drones.
+% \section{Hybrid Methodology}
+% \label{Hybrid_Methodology}
 
 
 

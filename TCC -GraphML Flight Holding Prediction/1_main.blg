@@ -9,6 +9,7 @@ A level-1 auxiliary file: 3_abstract.aux
 A level-1 auxiliary file: 3.2_resumo.aux
 A level-1 auxiliary file: USPSC-AbreviaturasSiglas.aux
 A level-1 auxiliary file: 4_introduction.aux
+A level-1 auxiliary file: 5_theoretical.aux
 A level-1 auxiliary file: 5_problem_description.aux
 A level-1 auxiliary file: 6_materialsAndMethods.aux
 A level-1 auxiliary file: 7_results.aux
@@ -25,55 +26,55 @@ Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Database file #1: abntex2-options.bib
 Database file #2: 8_references.bib
 Warning--I didn't find a database entry for "abnt-etal-cite"
+Warning--I didn't find a database entry for "GraphSmote"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=200001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
-Warning--campo year vazio ou faltando em nasa
 +---------------------------------------------------------+
 | Estilo bibliográfico abntex2-alf.bst versão v-1.9.7           |
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://www.abntex.net.br/                               |
 +---------------------------------------------------------+
-You've used 43 entries,
+You've used 24 entries,
             6714 wiz_defined-function locations,
-            1449 strings with 18440 characters,
-and the built_in function-call counts, 51667 in all, are:
-= -- 5438
-> -- 1282
-< -- 995
-+ -- 1459
-- -- 376
-* -- 3458
-:= -- 6261
-add.period$ -- 147
-call.type$ -- 45
-change.case$ -- 452
-chr.to.int$ -- 99
-cite$ -- 33
-duplicate$ -- 4226
-empty$ -- 2590
-format.name$ -- 1840
-if$ -- 11141
-int.to.chr$ -- 11
+            1305 strings with 12571 characters,
+and the built_in function-call counts, 18078 in all, are:
+= -- 1672
+> -- 508
+< -- 192
++ -- 415
+- -- 151
+* -- 1212
+:= -- 2253
+add.period$ -- 50
+call.type$ -- 26
+change.case$ -- 197
+chr.to.int$ -- 36
+cite$ -- 13
+duplicate$ -- 1069
+empty$ -- 1279
+format.name$ -- 726
+if$ -- 4203
+int.to.chr$ -- 10
 int.to.str$ -- 1
-missing$ -- 692
-newline$ -- 181
-num.names$ -- 163
-pop$ -- 824
+missing$ -- 346
+newline$ -- 72
+num.names$ -- 65
+pop$ -- 374
 preamble$ -- 1
-purify$ -- 180
+purify$ -- 92
 quote$ -- 0
-skip$ -- 4815
+skip$ -- 1624
 stack$ -- 1
-substring$ -- 2338
-swap$ -- 1708
-text.length$ -- 73
+substring$ -- 708
+swap$ -- 434
+text.length$ -- 22
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 10
-warning$ -- 1
-while$ -- 272
+type$ -- 3
+warning$ -- 0
+while$ -- 105
 width$ -- 0
-write$ -- 554
+write$ -- 218
 (There were 2 warnings)
