@@ -1,0 +1,18 @@
+%% USPSC-Resumo.tex
+\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo		
+\begin{resumo}
+	\begin{flushleft} 
+			\setlength{\absparsep}{0pt} % ajusta o espaçamento da referência	
+			\SingleSpacing 
+			\imprimirautorabr~~\textbf{\imprimirtituloresumo}.	\imprimirdata. \pageref{LastPage}p. 
+			%Substitua p. por f. quando utilizar oneside em \documentclass
+			%\pageref{LastPage}f.
+			\imprimirtipotrabalho~-~\imprimirinstituicao, \imprimirlocal, \imprimirdata. 
+ 	\end{flushleft}
+\OnehalfSpacing 	
+
+A crescente demanda por soluções eficientes de entrega de última milha, impulsionada pelo crescimento do comércio eletrônico e urbanização, exige abordagens inovadoras para gerenciar as complexidades da logística urbana. Este estudo investiga o uso de drones para entrega de última milha por meio de uma abordagem baseada em grafos, focando no problema de Multi-Agent Pathfinding (MAPF), que envolve o roteamento de múltiplos drones para entregar pacotes de forma eficiente. A maioria dos algoritmos propostos para o problema de Drones de Entrega de Última Milha (LMDD, em inglês) tendem a ignorar as complexidades inerentes do problema MAPF. Esta pesquisa adota uma representação baseada em grafos da área de entrega, transformando o problema em uma otimização de fluxo de rede. O método heurístico baseado em grafos proposto é avaliado em comparação com uma solução puramente baseada em Programação Linear Inteira Mista (MILP, em inglês). Os resultados experimentais demonstram que a abordagem heurística não apenas melhora a eficiência computacional, mas também mantém alta qualidade nas soluções. Especificamente, a heurística supera a MILP em termos de tempo de execução, enquanto alcança uma precisão comparável na otimização de caminhos. Além disso, é proposta uma implementação híbrida combinando heurística e MILP. O modelo MILP exato tem complexidade exponencial conforme o número de drones aumenta, o que é esperado, uma vez que o paradigma MAPF é NP-Completo. A complexidade da heurística é limitada por $\mathcal{O}(N^3 K \max{(\log N, \log K)})$, onde $K$ é o número de drones e $N$ é a dimensão, se a grade for quadrada. O estudo destaca o potencial de sistemas de controle centralizados para gerenciar uma frota de drones de entrega. Os resultados de simulações extensivas indicam que a heurística baseada em grafos equilibra a eficiência computacional e a confiabilidade operacional de forma eficaz, tornando-a uma solução viável para aplicações de entrega de última milha do mundo real. Esta pesquisa contribui para o campo mais amplo da logística de drones oferecendo um método escalável e robusto para otimizar os caminhos de entrega de drones, apoiando assim a integração de drones em sistemas de entrega comerciais. Este trabalho também sugere avanços com agentes inteligentes usando Aprendizado por Reforço (RL, em inglês) e Redes Neurais de Grafos (GNNs, em inglês) para melhorar o paradigma descentralizado, o qual nós provamos ser inferior à nossa metodologia centralizada, uma vez que utiliza uma otimização local em contraste com nossa otimização global.
+ 
+
+ \textbf{Palavras-chave}: Otimização. Grafos. Drones de Entrega de Última Milha.
+\end{resumo}

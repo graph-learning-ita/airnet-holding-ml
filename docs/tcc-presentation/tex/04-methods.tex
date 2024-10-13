@@ -1,0 +1,222 @@
+% Materials and Methods
+%   Datasets
+%   MST
+%   OPF
+
+\section{Materials and Methods}
+
+\begin{frame}{MILP Model - Graph Modelling}
+    \begin{itemize}
+        \item Proposal of a Mixed-Integer Linear Programming (MILP) model to solve the problem.
+        \item Graph construction representing spatio-temporal permits shared by the drones.
+        \item Modeled as a directed graph (digraph) $G = (V, A)$.
+        \item $V$: set of nodes representing airspace and virtual drone locations.
+        \item $A$: set of directed arcs representing permitted transitions between nodes.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{MILP Model - Virtual Nodes}
+    \begin{figure}
+      \begin{columns}
+        \column{.4\linewidth}
+        \begin{itemize}
+           
+            \item Source node $b_k$: Starting point of drone $k$'s mission.
+            \item Sink node $e_k$: Ending point of drone $k$'s mission.
+            
+            \item Focus on spatial topology, omitting temporal component.
+        \end{itemize}
+        \caption{Graph modelling. \\ Source: The authors.}
+        \label{fig_graph}
+        \column{.45\linewidth}
+        \includegraphics[width=0.8\textwidth]{img/graph_model.pdf}
+      \end{columns}
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}{MILP Model - Parameters}
+    \begin{itemize}
+        \item $T$: Maximum time allowed for the mission.
+        \item $b_k$: Initial virtual vertex representing the initial position of drone $k$.
+        \item $e_k$: Final virtual vertex representing the final position of drone $k$.
+        \item $\mathcal{R}$: Set of drones.
+        \item $\mathcal{G}$: Digraph $(\mathcal{V}, \mathcal{A})$ representing the airspace.
+        \item $\mathcal{V}$: Set of vertices of $\mathcal{G}$.
+        \item $\mathcal{B} \subset \mathcal{V}$: Set of initial virtual vertices $b_k$.
+        \item $\mathcal{E} \subset \mathcal{V}$: Set of final virtual vertices $e_k$.
+        \item $\mathcal{S}$: Set $\mathcal{V} \setminus (\mathcal{B} \cup \mathcal{E})$.
+        \item $\mathcal{A}$: Set of arcs $(i,j) \in \mathcal{A}$ of $\mathcal{G}$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{MILP Model - Variables}
+    \begin{itemize}
+        \item Decision Variables:
+        \begin{itemize}
+            \item $x_{i,j,t}^k = 1 \iff$ drone $k$ jumps from $i$ to $j$ at time $t$.
+        \end{itemize}
+        \item Indices:
+        \begin{itemize}
+            \item $k$: Drone $\implies k \in \mathcal{R}$.
+            \item $t$: Time $\implies 1 \leq t \leq T$.
+            \item $i, j, l$: Vertices $\implies i, j, l \in \mathcal{V}$.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{MILP Model - Objective Function}
+    \begin{itemize}
+        \item Minimize the total sum of the number of drone movements:
+    \end{itemize}
+    \[
+    \min
+    \sum_{k \in \mathcal{R}}
+    \sum_{t=1}^T
+    \sum_{ \; (i,j) \in \mathcal{A}:\ j \notin (\mathcal{E} \cup \mathcal{B})} x_{i,j,t}^{k}
+    \]
+    \begin{itemize}
+        \item Minimize the total number of drone movements, counting $n-1$ jumps for each drone that performs $n$ jumps.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{MILP Model - Constraints}
+    \begin{itemize}
+        \item Ensure each drone starts its mission:
+    \end{itemize}
+    \[
+    \sum_{t=1}^{T}
+    \sum_{j \in \mathcal{S}}
+    x_{b_k,j,t}^k = 1, \quad \forall k \in \mathcal{R}
+    \]
+    \begin{itemize}
+        \item Flow conservation:
+    \end{itemize}
+    \[
+    \sum_{j \in \mathcal{V}} x_{i,j,t-1}^{k} =
+    \sum_{l \in \mathcal{V}} x_{j,l,t}^{k}, \quad
+    \forall j \in \mathcal{V}, \forall k \in \mathcal{R}, \forall t \in \{2, \ldots, T\}
+    \]
+\end{frame}
+
+\begin{frame}{MILP Model - Constraints (Cont.)}
+    \begin{itemize}
+        \item Border condition at time $t=0$:
+    \end{itemize}
+    \[
+    x_{i,j,0}^k = \left\{
+    \begin{matrix}
+        1, & \text{if}\ i=b_k \land j=b_k,\\
+        0, & \text{otherwise}.
+    \end{matrix}
+    \right.
+    \quad \forall k \in \mathcal{R}, \forall (i,j) \in A
+    \]
+    \begin{itemize}
+        \item Mutual exclusion of vertex occupation:
+    \end{itemize}
+    \[
+    \sum_{k \in \mathcal{R}}
+    \sum_{j \in \mathcal{V}}
+    x_{i,j,t}^{k} \leq 1, \quad \forall j \in \mathcal{V}, \forall t \in \{1, \ldots, T\}
+    \]
+\end{frame}
+
+\begin{frame}{MILP Model - Mission Accomplishment}
+    \begin{itemize}
+        \item Ensure each drone completes its mission:
+    \end{itemize}
+    \[
+    \sum_{t=1}^{T}
+    \sum_{i \in \mathcal{S}}
+    x_{i,e_k,t}^k \geq 1, \quad \forall k \in \mathcal{R}
+    \]
+\end{frame}
+
+\begin{frame}{Heuristic Approach}
+        \begin{itemize}
+            \item Utilize distance measure as heuristic metric \cite{Weise2023}.
+            \item Organize drones in ascending order (prioritized planning) based on start and end points.
+            \item Employ iterative Breadth-First Search (BFS) on temporal graph.
+            \item Dynamic constraints update of occupied positions (conflict-based search).
+            \item Combine heuristic sorting and iterative BFS for efficient path planning and adaptability.
+        \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Algorithm Notation}
+    \begin{table}
+      \centering
+      \caption{Notation used in the Algorithm.}
+      \label{tab:notation}
+      \begin{tabular}{ll}
+        \toprule
+        Notation & Definition \\
+        \midrule
+        $\mathcal{V}$ &Set of vertices in the graph $: (i,j,t)$ \\
+        $\mathcal{E}$ & Set of edges  \\
+        $\mathcal{D}$ & Set of drones \\
+        $\mathcal{S}$ & Set of already scheduled vertices \\
+        $\mathcal{P}_d \subseteq \mathcal{V} $ & Path of drone $d$ \\
+        $\mathcal{G} = (\mathcal{V},\mathcal{E}) $ & Temporal Graph \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}{Heuristic Algorithm Steps}
+    \begin{enumerate}
+        \item \textbf{Drones Sorting}: Ascending sort using Euclidean Distance.
+            \begin{equation}
+                \mathcal{D}_{\text{sorted}} = \text{sort}(\mathcal{D}, \text{heuristic})
+            \end{equation}
+        \item \textbf{Path for Each Drone}: Compute path \(P_d\) using BFS on graph \(\mathcal{G}\).
+            \begin{equation}
+                \forall d \in \mathcal{D}_{\text{sorted}}: \quad \mathcal{P}_d = \text{BFS}(\mathcal{G}, d)
+            \end{equation}
+        \item \textbf{Constraints Update}: Update set of already scheduled vertices \(\mathcal{S}\).
+            \begin{equation}
+                \mathcal{S} = \mathcal{S} \cup \bigcup_{d \in \mathcal{D}_{\text{sorted}}} \mathcal{P}_d
+            \end{equation}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Algorithm Visualization}
+    \input{img/img_drones}
+\end{frame}
+
+\begin{frame}{Complexity Analysis and Boundedness}
+    \begin{itemize}
+        \item Worst-case complexity: $\mathcal{O}((N+M) K N M \log((N+M) K N M))$.
+        \item Approximation: $\mathcal{O}(N^3 K \log(N^3 K))$ for square grids.
+    \end{itemize}
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.6\textwidth]{img/worst_path.drawio.pdf}
+      \caption{Worst case path. Source: The authors.}
+      \label{fig:worst_path}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Hybrid Methodology}
+    \begin{itemize}
+        \item \textbf{Heuristic Solution Generation}
+            \begin{itemize}
+                \item Quickly generates an initial feasible solution.
+                \item Determines a plausible time horizon $T_{\text{heuristic}}$.
+            \end{itemize}
+        \item \textbf{MILP Model Refinement}
+            \begin{itemize}
+                \item Uses $T_{\text{heuristic}}$ and initial feasible solution from heuristic.
+                \item Refines the solution to ensure global optimality.
+            \end{itemize}
+        \item \textbf{Advantages}
+            \begin{itemize}
+                \item Combines computational speed with solution accuracy.
+                \item Skips multiple iterations to determine $T$, reducing computational expense.
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
