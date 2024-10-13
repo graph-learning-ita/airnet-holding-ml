@@ -17,6 +17,7 @@ dependencies = [
     "pip>=24.0",
     "tqdm-joblib>=0.0.3",
     "MetPy>=1.6.2",
+    "torch-geometric==2.6.0",
 ]
 requires-python = ">=3.10,<3.12"
 readme = "README.md"
