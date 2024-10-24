@@ -166,18 +166,18 @@ cython_debug/
 
 # tex
 
-docs/**/.pdf
-*.bbl
-*.aux
-*.blg
-*.glo
-*.idx
-*.ist
-*.lof
-*.log
-*.lot
-*.toc
-*.glg
-*.gls
-*.ilg
-*.ind
+docs/**/*.pdf
+docs/**/*.bbl
+docs/**/*.aux
+docs/**/*.blg
+docs/**/*.glo
+docs/**/*.idx
+docs/**/*.ist
+docs/**/*.lof
+docs/**/*.log
+docs/**/*.lot
+docs/**/*.toc
+docs/**/*.glg
+docs/**/*.gls
+docs/**/*.ilg
+docs/**/*.ind
