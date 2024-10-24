@@ -174,9 +174,11 @@ docs/**/*.glo
 docs/**/*.idx
 docs/**/*.ist
 docs/**/*.lof
+docs/**/*.fls
 docs/**/*.log
 docs/**/*.lot
 docs/**/*.toc
+docs/**/*.fdb_latexmk
 docs/**/*.glg
 docs/**/*.gls
 docs/**/*.ilg
