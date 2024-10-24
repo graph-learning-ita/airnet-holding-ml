@@ -62,7 +62,7 @@ tcc:
 	cd docs/tcc && latexmk -shell-escape -pdf -file-line-error 1_main.tex
 	make clean
 
-presentation:
+tcc-presentation:
 	make clean
 	cd docs/tcc-presentation && latexmk -shell-escape -pdf -file-line-error apresentacao.tex
 	make clean
