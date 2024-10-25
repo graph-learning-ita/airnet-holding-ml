@@ -1,0 +1,41 @@
+\begin{algorithm}[H]
+    \label{alg:grid-bfs}
+    \DontPrintSemicolon
+    \KwData{Grid dimensions $N$ (rows) and $M$ (columns), Number of drones $K$, List of drones \textit{drones}}
+    \KwResult{Paths for each drone considering constraints}
+
+    \BlankLine
+    \ForEach{\textit{drone} in \textit{drones}}{
+        Initialize data structures for BFS: \textit{bfs\_queue}, \textit{parent}, \textit{visited}\;
+        Set \textit{flight\_time} of \textit{drone} to -1\;
+        \While{No valid path found for \textit{drone}}{
+            Increment \textit{flight\_time} of \textit{drone}\;
+            Enqueue \textit{drone\_begin} with \textit{flight\_time} into \textit{bfs\_queue}\;
+            \While{\textit{bfs\_queue} is not empty}{
+                Dequeue a position and time \;
+                \If{Position is the destination of \textit{drone}}{
+                    Reconstruct and schedule path for \textit{drone}\;
+                    \Return path\;
+                }
+                \If{Position is scheduled}{
+                \textit{\textbf{Continue}}
+                    \;
+                }
+                \For{Neighbor positions}{
+                    \If{Position is valid and not visited}{
+                        \If{Position is scheduled and no schedule discovered in neighbors yet}{
+                            
+                            Enqueue current position and \textit{flight\_time + 1} \;
+                            
+                            \textit{\textbf{Continue}} \;
+                        }
+                        Mark position as visited\;
+                        Store parent information\;
+                        Enqueue the neighbor position into \textit{bfs\_queue}\;
+                    }
+                }
+            }
+        }
+    }
+    \caption{Path Planning for Drones using BFS}
+\end{algorithm}

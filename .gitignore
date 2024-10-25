@@ -162,3 +162,24 @@ cython_debug/
 #.idea/
 /coverage.json
 /datasets
+
+
+# tex
+
+docs/**/*.pdf
+docs/**/*.bbl
+docs/**/*.aux
+docs/**/*.blg
+docs/**/*.glo
+docs/**/*.idx
+docs/**/*.ist
+docs/**/*.lof
+docs/**/*.fls
+docs/**/*.log
+docs/**/*.lot
+docs/**/*.toc
+docs/**/*.fdb_latexmk
+docs/**/*.glg
+docs/**/*.gls
+docs/**/*.ilg
+docs/**/*.ind

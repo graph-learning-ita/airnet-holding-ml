@@ -1,0 +1,107 @@
+% % Experiments
+% %   Initial
+% %   DTW
+% %   Pruning and Improvements
+% %   Batch-Tests
+
+% \section{Experiments}
+
+% \begin{frame}{Initial tests}
+% \framesubtitle{Data description}
+% \begin{table}[htb]
+% 	\label{tab:info_initial}
+% 	\begin{tabular}{ccccccc}
+% 		Name & Type & Train & Test & Class & Length & 1NN-ED\\
+% 		\midrule
+% 		WordSynonyms & Image & 267 & 638 & 25 & 270 & 0.38\\
+% 		SemgHandSubjectCh2 & Spectrum & 450 & 450 & 5 & 1500 & 0.60\\
+% 		PLAID & Device & 537 & 537 & 11 & 1344 & 0.48\\
+% 		MelbournePedestrian & Traffic & 1194 & 2439 & 10 & 24 & 0.15\\
+% 		ChlorineConcentration & Sensor & 467 & 3840 & 3 & 166 & 0.35\\
+% 		ShapesAll & Image & 600 & 600 & 60 & 512 & 0.25\\
+% 	\end{tabular}%%
+    
+%     \caption{Description of the $6$ datasets chosen to represent data. Source: \cite{UCRArchive2018}}%
+% \end{table}
+% \end{frame}
+
+% \begin{frame}{Initial tests}
+% \framesubtitle{Euclidean distance}
+% \begin{table}[htb]
+% 	\label{tab:opf_initial}
+% 	\begin{tabular}{cccc}
+% 		Name & OPF-ED & 1NN-ED & Runtime (s)\\
+% 		\midrule
+% 		WordSynonyms & 0.39 & 0.38 & 1.09 $\pm$ 0.04\\
+% 		SemgHandSubjectCh2 & 0.21 & 0.60 & 6.17 $\pm$ 0.14\\
+% 		PLAID & 0.33 & 0.48 & 10.57 $\pm$ 0.38\\
+% 		MelbournePedestrian & 0.06 & 0.15 & 13.86 $\pm$ 0.13\\
+% 		ChlorineConcentration & 0.36 & 0.35 & 6.95 $\pm$ 0.12\\
+% 		ShapesAll & 0.25 & 0.25 & 3.98 $\pm$ 0.04\\
+% 	\end{tabular}%%
+	
+%     \caption{Classification errors using the Euclidean distance as metric in OPF and 1NN, and runtime of OPF classification. Source: The authors and \cite{UCRArchive2018}}%
+% \end{table}
+% \end{frame}
+
+% \begin{frame}{DTW distance}
+% \begin{table}[htb]
+% 	\label{tab:opf_dtwinitial}
+% 	\begin{tabular}{cccc}
+% 		Name & OPF-DTW & 1NN-DTW & Runtime (s)\\
+% 			\midrule
+% 			WordSynonyms & 0.27 & 0.26 & 13.20 $\pm$ 0.11\\
+% 			SemgHandSubjectCh2 & 0.12 & 0.12 & 614.27 $\pm$ 4.65\\
+% 			PLAID & 0.10 & 0.09 & 747.84 $\pm$ 1.35\\
+% 			MelbournePedestrian & 0.08 & 0.08 & 17.89 $\pm$ 0.13\\
+% 			ChlorineConcentration & 0.36 & 0.35 & 41.17 $\pm$ 0.09\\
+% 			ShapesAll & 0.22 & 0.21 & 141.46 $\pm$ 0.36\\
+% 	\end{tabular}%%
+    
+%     \caption{Classification errors using the DTW distance, with a fixed window size of $w=10\%$ of series length, as metric in OPF and 1NN, and runtime of OPF classification. Source: The authors and \cite{UCRArchive2018}}%
+% \end{table}
+% \end{frame}
+
+% \begin{frame}{Pruning and improvements}
+% \framesubtitle{Euclidean distance}
+% \begin{table}[htb]
+% 	\label{tab:opf_pruning}
+% 	\begin{tabular}{cccc}
+% 		Name & Python Runtime (s) & C++ Runtime (s) & Speedup\\
+% 		\midrule
+% 		WordSynonyms & 1.09 $\pm$ 0.04 & 0.05 $\pm$ 0.00 & 21.41 $\pm$ 0.89\\
+% 		SemgHandSubjectCh2 & 6.17 $\pm$ 0.14 & 0.39 $\pm$ 0.01 & 15.95 $\pm$ 0.59\\
+% 		PLAID & 10.57 $\pm$ 0.38 & 0.55 $\pm$ 0.02 & 19.17 $\pm$ 0.11\\
+% 		MelbournePedestrian & 13.86 $\pm$ 0.13 & 0.07 $\pm$ 0.01 & 200.04 $\pm$ 0.19\\
+% 		ChlorineConcentration & 6.95 $\pm$ 0.12 & 0.25 $\pm$ 0.00 & 27.30 $\pm$ 0.61\\
+% 		ShapesAll & 3.98 $\pm$ 0.04 & 0.26 $\pm$ 0.01 & 15.23 $\pm$ 0.76\\
+% 	\end{tabular}%%
+    
+%     \caption{Runtime comparison of Python and C++ implementations of OPF-ED, obtained from $10$ interactions. Source: The authors.}%
+% \end{table}
+% \end{frame}
+
+
+% \begin{frame}{Pruning and improvements}
+% \framesubtitle{DTW distance}
+% \begin{table}[htb]
+% 	\label{tab:opf_pruning2}
+% 	\begin{tabular}{cccc}
+% 	Name                    & Previous Runtime (s)  & Pruned Runtime (s) & Speedup\\
+% 		\midrule
+% 		WordSynonyms            & 13.20 $\pm$ 0.11  & 11.81 $\pm$ 0.04 & 1.12 $\pm$ 0.01\\
+% 		SemgHandSubjectCh2      & 614.27 $\pm$ 4.65 & 472.26 $\pm$ 1.29 & 1.30 $\pm$ 0.01\\
+% 		PLAID                   & 747.84 $\pm$ 1.35 & 524.91 $\pm$ 4.03 & 1.42 $\pm$ 0.01\\
+% 		MelbournePedestrian     & 17.89 $\pm$ 0.13  & 5.73 $\pm$ 0.09  & 3.13 $\pm$ 0.05\\
+% 		ChlorineConcentration   & 41.17 $\pm$ 0.09  & 43.80 $\pm$ 0.30 & 0.94 $\pm$ 0.01\\
+% 		ShapesAll               & 141.46 $\pm$ 0.36 & 105.96 $\pm$ 0.18  & 1.33 $\pm$ 0.01\\
+% 	\end{tabular}%%
+    
+%     \caption{Runtime comparison of naive and improved implementations of OPF-DTW, obtained from $10$ interactions. Source: The authors.}%
+% \end{table}
+% \end{frame}
+
+% % \begin{frame}{Batch tests}
+% % % \framesubtitle{Introdução}
+% % Intro.
+% % \end{frame}
