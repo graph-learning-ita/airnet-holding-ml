@@ -93,6 +93,7 @@ brazil				% o último idioma é o principal do documento
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{amsthm}
+\usepackage{fontawesome5}
 
 % TODO List
 \usepackage{todonotes}
@@ -104,11 +105,32 @@ brazil				% o último idioma é o principal do documento
 \usepackage{tikz}
 \usepackage{aircraftshapes}
 
-\definecolor{greenMW}{rgb}{0.0, 0.75, 0.0} % Define the greenMW color
-\definecolor{orange}{rgb}{1.0, 0.65, 0.0} % Define the orange color
-\definecolor{blue}{rgb}{0.0, 0.0, 1.0} % Define the blue color
+\usetikzlibrary{positioning}
 
-\DeclareMathOperator*{\argmax}{arg max}
+\newcommand{\destaq}[1]{\textcolor{BlueViolet}{\textbf{#1}}}
+\newcommand\todo[1]{\colorbox{green}{#1}}
+
+\definecolor{echodrk}{HTML}{0099cc}
+\definecolor{olivegreen}{rgb}{0,0.6,0}
+\definecolor{camdrk}{RGB}{0,62,114}
+
+\usetikzlibrary{arrows,shapes}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+
+\definecolor{mymauve}{rgb}{0.58,0,0.82} 
+
+\usetikzlibrary{arrows,shapes, decorations.pathmorphing,backgrounds,positioning}
+
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+
+\tikzstyle{vertex}=[circle,fill=black!25,minimum size=20pt,inner sep=0pt]
+\tikzstyle{selected vertex} = [vertex, fill=red!24]
+\tikzstyle{select vertex} = [vertex, fill=blue!24]
+\tikzstyle{selectx vertex} = [vertex, fill=green!24]
+\tikzstyle{edge} = [draw,thick,-]
+\tikzstyle{selected edge} = [draw,line width=5pt,-,red!50]
 
 \usepackage{minted}
 \usemintedstyle{vs}
@@ -450,7 +472,6 @@ brazil				% o último idioma é o principal do documento
 
 \include{5_theoretical}
 % ---
-\include{5_problem_description}
 
 %\include{6_mathematical_model}
 

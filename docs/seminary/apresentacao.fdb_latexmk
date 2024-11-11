@@ -1,5 +1,5 @@
 # Fdb version 3
-["bibtex apresentacao"] 1731294254 "apresentacao.aux" "apresentacao.bbl" "apresentacao" 1731294258
+["bibtex apresentacao"] 1731294254 "apresentacao.aux" "apresentacao.bbl" "apresentacao" 1731304278
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/siam.bst" 1292289607 19403 812681d329611d2a1625ad7ae5186edc ""
   "apresentacao.aux" 1731294258 3867 60af833e7501014371c0df58fe11f224 "pdflatex"
   "refs.bib" 1731294026 15221 f09ebfaff3f54ead83a601f40048d96e ""
@@ -8,9 +8,9 @@
   "tex/03-spatial.aux" 1731294256 2985 83425128f5c7a44eda5b2d7c8518047d "pdflatex"
   "tex/05-conclusion_future.aux" 1731294257 2148 6cca0cc946f78e4a95e41d164232fd7b "pdflatex"
   (generated)
-  "apresentacao.bbl"
   "apresentacao.blg"
-["pdflatex"] 1731294254 "apresentacao.tex" "apresentacao.pdf" "apresentacao" 1731294258
+  "apresentacao.bbl"
+["pdflatex"] 1731294254 "apresentacao.tex" "apresentacao.pdf" "apresentacao" 1731304278
   "/dev/null" 1731260972 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/etc/texmf/web2c/texmf.cnf" 1701546370 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free2.enc" 1579211814 2920 5286a5fcf3f1fda869ad226854d39ca2 ""
@@ -335,14 +335,14 @@
   "tex/05-conclusion_future.aux" 1731294257 2148 6cca0cc946f78e4a95e41d164232fd7b "pdflatex"
   "tex/05-conclusion_future.tex" 1731294238 2401 58b36d5305a3ad0be952a1d9fa52b070 ""
   (generated)
-  "apresentacao.log"
-  "apresentacao.toc"
-  "apresentacao.aux"
-  "apresentacao.out"
-  "apresentacao.nav"
-  "tex/05-conclusion_future.aux"
-  "apresentacao.snm"
-  "tex/01-intro.aux"
-  "tex/03-spatial.aux"
   "apresentacao.pdf"
+  "tex/03-spatial.aux"
+  "apresentacao.nav"
+  "apresentacao.snm"
+  "apresentacao.out"
+  "apresentacao.log"
   "tex/02-spectral.aux"
+  "apresentacao.toc"
+  "tex/01-intro.aux"
+  "apresentacao.aux"
+  "tex/05-conclusion_future.aux"

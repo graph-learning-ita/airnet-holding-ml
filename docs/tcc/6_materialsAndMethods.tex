@@ -1,16 +1,31 @@
 \chapter[Materials and Methods]{Materials and Methods}
 \label{Materials}
 
-This chapter details the materials and methods used in our study. Specifically, we will cover the dataset, the model based on CatBoost using graph-derived features, and our approach using Graph Attention Networks (GATs) for predictive modeling. Our dataset includes a range of meteorological, geographical, and flight variables. The unique challenges of imbalanced data in graph machine learning will also be discussed, including our rationale for avoiding common techniques like oversampling and undersampling in this setting.
+This chapter details the materials and methods used in our study. Specifically, we will cover the dataset, the model based on CatBoost using graph-derived features, and our approach using Graph Attention Networks (GATs) for predictive modeling. Our dataset includes a range of meteorological, geographical, and flight variables. 
 
-Our objective is to detail and model how to predict 
+Our objective is to detail and model how to predict if a given aircraft is going to delay due to holding maneuver in a supervised learning setting.
 
-\section{Dataset}
-\label{Dataset}
+\section{Datasets}
+\label{Datasets}
 
-The dataset consists of 148,175 observations with various meteorological, geographical, flight-related, and graph-based features. These data were collected from multiple sources, including METAR and METAF weather reports, airport/flights specifications that were provided by \textbf{SOLVE THIS} ICEA, and graph-derived metrics.
+The study utilizes two distinct datasets, each containing 42,336 observations, with identical meteorological, geographical, and flight-related features. These datasets were constructed from a combination of METAR and METAF weather reports, airport and flight specifications sourced from ICEA. Each dataset serves a different predictive modeling purpose—binary classification and regression—and includes tailored labels to reflect these objectives
 
-One of the primary challenges in this dataset is its class imbalance, which could impact model performance. Common approaches to address imbalance, such as oversampling or undersampling, have been shown to introduce limitations like overfitting and poor generalization (\cite{zhao2021graphsmote}, Graph SMOTE). For graph machine learning tasks, oversampling is generally problematic due to the risk of introducing artificial connectivity patterns, while undersampling can lead to loss of critical structural information. Therefore, we opted to explore model-based techniques without applying these rebalancing methods.
+One of the primary challenges in the classification dataset is its class imbalance, which could impact model performance. Common approaches to address imbalance, such as oversampling or undersampling, have been shown to introduce limitations like overfitting and poor generalization (\cite{zhao2021graphsmote}, Graph SMOTE). For graph machine learning tasks, oversampling is generally problematic due to the risk of introducing artificial connectivity patterns, while undersampling can lead to loss of critical structural information. Therefore, we opted to explore model-based techniques without applying these rebalancing methods.
+
+\subsection{Binary Classification Dataset}
+The binary classification dataset is used to predict the likelihood of a holding maneuver occurring for a given flight. In this dataset, the label is a binary value:
+\begin{itemize}
+    \item \textbf{Class 0 (No Holding)}: Represents flights with no holding delays, comprising 41,616 samples.
+    \item \textbf{Class 1 (Holding)}: Indicates flights with holding delays, comprising only 720 samples.
+\end{itemize}
+This significant imbalance between the classes adds complexity to the classification task, as the model needs to accurately predict a rare event within the data.
+
+\subsection{Regression Dataset}
+The regression dataset aims to predict the exact duration of holding delays in seconds, thus providing a continuous label for each observation:
+\begin{itemize}
+    \item \textbf{Holding Time (Seconds)}: For this dataset, each holding event is represented by a floating-point number indicating the holding time in seconds. This approach enables a finer-grained analysis and can potentially improve operational insights by quantifying delay duration rather than merely classifying its occurrence.
+\end{itemize}
+
 
 \subsection{Meteorological Features}
 The dataset includes a comprehensive range of meteorological variables from both METAR and METAF reports:
@@ -47,21 +62,6 @@ These features capture specific characteristics related to the flight and any ru
     \item \textbf{Flight Hour:} \texttt{hora\_do\_voo}
 \end{itemize}
 
-\subsection{Graph-Derived Features}
-Graph-derived features were calculated from the flight network, where airports are nodes, and flights are edges. These features provide insights into the network structure and airport connectivity:
+\input{6.1_catboost.tex}
 
-\begin{itemize}
-    \item \textbf{Betweenness:} Betweenness centrality to capture each airport's route relative importance in the flight network.
-    \item \textbf{Flow Betweenness:} \texttt{flow\_betweenness\_topo}, highlighting the flow of connections between airports.
-    \item \textbf{Edge Connectivity:} \texttt{edge\_connectivity}, indicating the robustness of connections in the network.
-    \item \textbf{Degree Difference:} \texttt{deg\_diff}, capturing the disparity in degree between connected nodes.
-    \item \textbf{Google Matrix:} \texttt{gmatrix}, the matrix that represents the edge transition centrality derived from PageRank.
-\end{itemize}
-
-\section{CatBoost Model with Graph Features}
-The CatBoost model leverages graph-derived features for predictive modeling. These features, derived from the structure of flight data as a directed graph, are designed to capture the influence of each airport's connectivity and influence within the network.
-
-\section{Graph Attention Network (GAT) Model}
-
-As we previously described the GAT model in \ref{spatial-based} has a large range of applications that ranges from drug discovery to fake news detection \cite{keywordsCaravanti}.
-The GAT model utilizes the underlying graph structure but does not incorporate the explicitly computed graph-derived features used in the CatBoost model. Instead, it learns node representations in an end-to-end manner, allowing the model to capture the relationships between airports and flights directly from the data.
+\input{6.2_gat.tex}

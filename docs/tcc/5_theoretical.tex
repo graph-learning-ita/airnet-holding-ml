@@ -11,6 +11,8 @@ In the following sections, we explain each subset, their theory and applications
 
 \section{traditional graph learning}
 
+\label{classical_learning}
+
 These early efforts focused on shallow learning techniques such as feature engineering, graph traversal algorithms, and spectral methods, which laid the foundation for understanding graph structure and dynamics. Methods like community detection, centrality measures, and link prediction \cite{silva2016machine} became key tools for analyzing large-scale networks in areas such as social science, biology, and infrastructure systems \cite{newman2018networks,boccaletti2006complex}. A significant focus of these techniques was to develop graph-based features that could be integrated into traditional machine learning models, effectively transforming graph data into a format compatible with standard algorithms like logistic regression, decision trees, and support vector machines. By encoding graph topology through hand-crafted features, such as connectivity and centrality, researchers could leverage these features for tasks like classification, regression, and clustering in tabular machine learning frameworks.
 
 Among these features, centrality measures became particularly important due to their ability to capture the relative importance or influence of nodes in a graph, not just nodes \cite{bonacich1987power}, but other graph elements such as edges \cite{Lu2013edgebetw, brohl2019centrality} and hyperedges \cite{tudisco2021hyperedge}. Centrality measures, such as degree, betweenness, and closeness, served as input features in machine learning pipelines, helping to predict outcomes based on the structural role of nodes within the network. 
@@ -25,6 +27,8 @@ However, these spectral-based centralities come with limitations. Eigenvector ce
 
 
 \section{Deep graph learning}
+
+\label{deep_learning}
 
 The rise of deep learning has revolutionized the field of graph machine learning, enabling the development of more powerful and scalable models for graph data. Graph neural networks can be divide in two main categories: spectral-based and spatial-based. Here is a trick thing, the GCN architecture \cite{kipf2016semi} is commonly divulgated as a spatial-based method, since it is more intuitive talking about the convolution operation in the spatial domain, where we simply aggregate information from the immediate neighbors. However, the GCN is a spectral-based method, in fact, it can be thought as a simplification of the first spectral GNN \cite{bruna2013spectral} proposed and that builds the math behind GCNs. That said, first we introduce the spectral-based GNNs and then the spatial-based ones.
 
