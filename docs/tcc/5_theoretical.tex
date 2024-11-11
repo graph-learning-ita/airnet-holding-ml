@@ -40,6 +40,8 @@ However, as we can note, all these spectral methods works just in undirected gra
 
 \subsection{Spatial-based GNNs}
 
+\label{spatial-based}
+
 Spatial-based GNNs differ from spectral-based approaches by directly leveraging the graph structure to perform convolutions in the spatial domain, rather than relying on the spectral decomposition of graph operators like the Laplacian. In spatial-based methods, the convolution operation is interpreted as an aggregation of node features from a node's local neighborhood, akin to how standard convolutional neural networks aggregate pixel information from nearby regions in image data. These methods operate by iteratively updating node representations by propagating information between neighboring nodes, making them intuitive and highly scalable for large-scale graphs.
 
 The general framework for message passing in spatial-based GNNs can be described as follows. For each node $i$, at layer $t$, we aggregate the features of its neighbors $\mathcal{N}(i)$ to produce an updated node embedding: $\mathbf{m}_i^{(t+1)} = \text{AGGREGATE}^{(t)} \left( \left\{ \mathbf{h}_j^{(t)} : j \in \mathcal{N}(i) \right\} \right)$, where $\mathbf{h}_j^{(t)}$ is the feature of neighboring node $j$ at layer $t$. Then, we update the node $i$'s representation: $\mathbf{h}_i^{(t+1)} = \text{UPDATE}^{(t)} \left( \mathbf{h}_i^{(t)}, \mathbf{m}_i^{(t+1)} \right)$, where $\text{AGGREGATE}^{(t)}$ is a neighborhood aggregation function, and $\text{UPDATE}^{(t)}$ is the node update function.

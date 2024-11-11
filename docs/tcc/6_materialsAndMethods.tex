@@ -1,18 +1,67 @@
 \chapter[Materials and Methods]{Materials and Methods}
 \label{Materials}
 
-Our data is a lot imbalanced, but there is little work on imbalanced data in the literature for graph machine learning and most of the work is based on oversampling %(\cite{GraphSmote} GRAPH SMOTE), however current literature shows that oversampling can lead to overfitting and poor generalization. In this work, we will deal with class imbalancing using undersampling for the GAT.  
+This chapter details the materials and methods used in our study. Specifically, we will cover the dataset, the model based on CatBoost using graph-derived features, and our approach using Graph Attention Networks (GATs) for predictive modeling. Our dataset includes a range of meteorological, geographical, and flight variables. The unique challenges of imbalanced data in graph machine learning will also be discussed, including our rationale for avoiding common techniques like oversampling and undersampling in this setting.
 
+Our objective is to detail and model how to predict 
 
-% In this chapter, we present in the first two sections the methodologies of both methods we used to solve the LMDD problem. Further, we present the hybrid method, that unifies both approaches.
+\section{Dataset}
+\label{Dataset}
 
-% \input{6.1_mathematical_model}
+The dataset consists of 148,175 observations with various meteorological, geographical, flight-related, and graph-based features. These data were collected from multiple sources, including METAR and METAF weather reports, airport/flights specifications that were provided by \textbf{SOLVE THIS} ICEA, and graph-derived metrics.
 
-% \input{6.2_heuristic}
+One of the primary challenges in this dataset is its class imbalance, which could impact model performance. Common approaches to address imbalance, such as oversampling or undersampling, have been shown to introduce limitations like overfitting and poor generalization (\cite{zhao2021graphsmote}, Graph SMOTE). For graph machine learning tasks, oversampling is generally problematic due to the risk of introducing artificial connectivity patterns, while undersampling can lead to loss of critical structural information. Therefore, we opted to explore model-based techniques without applying these rebalancing methods.
 
+\subsection{Meteorological Features}
+The dataset includes a comprehensive range of meteorological variables from both METAR and METAF reports:
 
-% \section{Hybrid Methodology}
-% \label{Hybrid_Methodology}
+\begin{itemize}
+    \item \textbf{Wind Direction:} \texttt{metar\_wind\_direction}, \texttt{metaf\_wind\_direction}
+    \item \textbf{Wind Speed:} \texttt{metar\_wind\_speed}, \texttt{metaf\_wind\_speed}
+    \item \textbf{Wind Gusts:} \texttt{metar\_wind\_gust}, \texttt{metaf\_wind\_gust}
+    \item \textbf{Visibility:} \texttt{metar\_visibility}, \texttt{metaf\_visibility}
+    \item \textbf{Cloud Coverage:} \texttt{metar\_cloudcover}, \texttt{metaf\_cloudcover}
+    \item \textbf{Temperature:} \texttt{metar\_temperature}, \texttt{metaf\_temperature}
+    \item \textbf{Dew Point:} \texttt{metar\_dewpoint}, \texttt{metaf\_dewpoint}
+    \item \textbf{Altitude:} \texttt{metar\_elevation}, \texttt{metaf\_elevation}
+    \item \textbf{Sky Levels:} \texttt{metar\_skylev1}, \texttt{metar\_skylev2}, \texttt{metar\_skylev3}, \texttt{metar\_skylev4}, \texttt{metaf\_skylev1}, \texttt{metaf\_skylev2}, \texttt{metaf\_skylev3}, \texttt{metaf\_skylev4}
+    \item \textbf{Altimeter Setting:} \texttt{metar\_altimeter}, \texttt{metaf\_altimeter}
+    \item \textbf{Weather Symbols:} \texttt{metar\_current\_wx1\_symbol}, \texttt{metar\_current\_wx2\_symbol}, \texttt{metar\_current\_wx3\_symbol}, \texttt{metaf\_current\_wx1\_symbol}, \texttt{metaf\_current\_wx2\_symbol}, \texttt{metaf\_current\_wx3\_symbol}
+\end{itemize}
 
+\subsection{Geographical Features}
+The geographical features include variables based on flight paths and airport information:
 
+\begin{itemize}
+    \item \textbf{Flight Distance:} Calculated as the geodesic distance between departure and arrival airports.
+    \item \textbf{Airport Altitude:} \texttt{departure\_altitude} and \texttt{arrival\_altitude}, reflecting the elevation of the airports.
+    \item \textbf{Latitude and Longitude:} \texttt{departure\_latitude}, \texttt{departure\_longitude}, \texttt{arrival\_latitude}, and \texttt{arrival\_longitude} for geolocation-based analysis.
+\end{itemize}
 
+\subsection{Flight-Specific Features}
+These features capture specific characteristics related to the flight and any runway head changes:
+
+\begin{itemize}
+    \item \textbf{Previous Runway Head Change:} \texttt{prev\_troca\_cabeceira}
+    \item \textbf{Runway Head Change in Previous Hour:} \texttt{troca\_cabeceira\_hora\_anterior}
+    \item \textbf{Flight Hour:} \texttt{hora\_do\_voo}
+\end{itemize}
+
+\subsection{Graph-Derived Features}
+Graph-derived features were calculated from the flight network, where airports are nodes, and flights are edges. These features provide insights into the network structure and airport connectivity:
+
+\begin{itemize}
+    \item \textbf{Betweenness:} Betweenness centrality to capture each airport's route relative importance in the flight network.
+    \item \textbf{Flow Betweenness:} \texttt{flow\_betweenness\_topo}, highlighting the flow of connections between airports.
+    \item \textbf{Edge Connectivity:} \texttt{edge\_connectivity}, indicating the robustness of connections in the network.
+    \item \textbf{Degree Difference:} \texttt{deg\_diff}, capturing the disparity in degree between connected nodes.
+    \item \textbf{Google Matrix:} \texttt{gmatrix}, the matrix that represents the edge transition centrality derived from PageRank.
+\end{itemize}
+
+\section{CatBoost Model with Graph Features}
+The CatBoost model leverages graph-derived features for predictive modeling. These features, derived from the structure of flight data as a directed graph, are designed to capture the influence of each airport's connectivity and influence within the network.
+
+\section{Graph Attention Network (GAT) Model}
+
+As we previously described the GAT model in \ref{spatial-based} has a large range of applications that ranges from drug discovery to fake news detection \cite{keywordsCaravanti}.
+The GAT model utilizes the underlying graph structure but does not incorporate the explicitly computed graph-derived features used in the CatBoost model. Instead, it learns node representations in an end-to-end manner, allowing the model to capture the relationships between airports and flights directly from the data.

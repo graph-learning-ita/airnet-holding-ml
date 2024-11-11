@@ -183,3 +183,4 @@ docs/**/*.glg
 docs/**/*.gls
 docs/**/*.ilg
 docs/**/*.ind
+notebooks/catboost_info
