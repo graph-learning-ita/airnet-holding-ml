@@ -1,43 +1,25 @@
 \section[Graph Attention Network]{Graph Attention Network}
 \label{Graph Attention Network}
 
-As we previously described, the GAT model in \ref{spatial-based} has a large range of applications, from drug discovery to fake news detection \cite{keywordsCaravanti}. The GAT model leverages the underlying graph structure but does not rely on explicitly computed graph-derived features like the CatBoost model does. Instead, it learns node representations in an end-to-end manner, enabling the model to capture the relationships between airports and flights directly from the data.
+As we previously described, the GAT model in section \ref{spatial-based} has a large range of applications, from drug discovery to fake news detection \cite{keywordsCaravanti}. The GAT model leverages the underlying graph structure but does not rely on explicitly computed graph-derived features like the CatBoost model does. Instead, it learns node representations in an end-to-end manner, enabling the model to capture the relationships between airports and flights directly from the data.
+
+The modelling of a GNN for our problem is a challenging task, as we have to adapt the model to predict edge features, since `holding' is an edge feature in our setting. In section \ref{spectral-based} we detailed why the spectral-based GNNs are not suitable for our setting, as they are not able to handle edge features and direction, due to their `node-centric' approach based on the adjacency matrix. Although spatial-based GNNs can handle direction in their majority, they are not able to handle edge features in general, since they need to create a way to aggregate the edge features with the neighbors' features.
+
+The GAT model is so used because it is highly adaptable in pratically any graph setting. As we will show, the attention mechanism detailed in section \ref{spatial-based} can be generalized to handle edge features, and the model can be adapted to predict edge features. In fact, a simple concatenation ($ || $) in the attention formula already gives us this power
+,
+
+$$ \alpha_{ij} = \sigma(\phi_1( \mathbf{a}^T [ W h_i || W h_j || W_2 e_{ij} ])) \; \; \text{,}$$
+  
+  where $e_{ij}$ are the edge features, $h_i$ and $h_j$ are the node features, and $W$ and $W_2$ are the weight matrices. This formula allows the model to focus on the relevant neighboring nodes, making it ideal for relational data. In our case, the edge features are the tabular data features with holding being part of them, which is the target we want to predict. This mechanism is demonstrated in Figure \ref{fig:gat_layer}.
+
 
 \input{img/gat_layer.tex}
 
-\begin{figure}[h]
-  \centering
-  \begin{tikzpicture}
-      % Define colors for different attention heads
-      \definecolor{color1}{RGB}{60, 120, 216}  % Blue for Head 1
-      \definecolor{color2}{RGB}{34, 139, 34}   % Green for Head 2
-      \definecolor{color3}{RGB}{255, 99, 71}   % Red for Head 3
-      
-      % Define nodes
-      \node[circle, draw, thick] (node1) at (0,0) {$\vec{h}_1$};
-      \node[circle, draw, thick] (node2) at (5,0) {$\vec{h}_2$};
-      
-      % Flight 1 - Blue attention heads, no intersections
-      \draw[-stealth, thick, color1!50] (node1) .. controls +(1,2) and +(-1,2) .. node[midway, above, color1!50] {$\alpha_{1,2}^{(1)}$} (node2);
-      \draw[-stealth, thick, color1!70] (node1) .. controls +(1,1.5) and +(-1,1.5) .. node[midway, above, color1!70] {$\alpha_{1,2}^{(2)}$} (node2);
-      \draw[-stealth, thick, color1] (node1) .. controls +(1,1) and +(-1,1) .. node[midway, above, color1] {$\alpha_{1,2}^{(3)}$} (node2);
-      
-      % Flight 2 - Green attention heads, spaced below Flight 1
-      \draw[-stealth, thick, color2!50] (node1) .. controls +(1,-1) and +(-1,-1) .. node[midway, below, color2!50] {$\alpha_{1,2}^{(1)}$} (node2);
-      \draw[-stealth, thick, color2!70] (node1) .. controls +(1,-1.5) and +(-1,-1.5) .. node[midway, below, color2!70] {$\alpha_{1,2}^{(2)}$} (node2);
-      \draw[-stealth, thick, color2] (node1) .. controls +(1,-2) and +(-1,-2) .. node[midway, below, color2] {$\alpha_{1,2}^{(3)}$} (node2);
+Furthermore, the directed multigraph setting we described in section \ref{sec:catboost_model} is not a problem for the GAT model, since it can handle multiple edges between the same pair of nodes, as we will show in the following sections. We show how we model the GAT to be a directed multigraph representing the flights and their features in Figure \ref{fig:multigraph_layer}.
 
-      % Flight 3 - Red attention heads, even lower to avoid overlap
-      \draw[-stealth, thick, color3!50] (node1) .. controls +(1,-3) and +(-1,-3) .. node[midway, below, color3!50] {$\alpha_{1,2}^{(1)}$} (node2);
-      \draw[-stealth, thick, color3!70] (node1) .. controls +(1,-3.5) and +(-1,-3.5) .. node[midway, below, color3!70] {$\alpha_{1,2}^{(2)}$} (node2);
-      \draw[-stealth, thick, color3] (node1) .. controls +(1,-4) and +(-1,-4) .. node[midway, below, color3] {$\alpha_{1,2}^{(3)}$} (node2);
 
-      % Output node
-      \node[circle, draw, thick, right=7em of node2, opacity=0.8] (output) {$\vec{h}_2'$};
-      
-      % Aggregation line with label
-      \draw[-stealth, thick, color1!70] (node2) -- ++(1.5,0) -- ++(1.5,0) node[midway, above, black] {concat/avg} -- (output);
-  \end{tikzpicture}
-  \caption{GAT Layer with multi-head attention for three different flights between nodes.}
-  \label{fig:gat_layer}
-\end{figure}
+\input{img/multigraph_layer.tex}
+
+Finally, the last layer of our predictor would be to pass the learned node embeddings $h_i$ and $h_j$ with the edge feature $e_{ij}^{(k)}$ of the flight $k$ to a fully connected layer (MLP) to predict the holding of the flight $k$.   That is, we simply concatenate them, and after the MLP layer, we have a sigmoid $\sigma$ activation function that outputs the prediction $\hat{y}_k$ of holding,
+
+$$ \hat{y}_k = \sigma (\text{MLP}(h_i || h_j || e_{ij}^{(k)})) \; \; \; \text{.} $$
