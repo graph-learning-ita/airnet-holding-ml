@@ -1,0 +1,87 @@
+\section{Spatial GNNs}
+
+
+\begin{frame}{Spatial-based GNNs Overview}
+    \begin{itemize}
+        \item Spatial-based GNNs perform convolutions in the spatial domain by directly leveraging the graph structure.
+        \item These methods aggregate features from local neighborhoods, similar to CNNs on image data.
+        \item Each node's features are updated iteratively through message passing with its neighboring nodes.
+        \item Suitable for large-scale graphs due to their scalability and flexibility.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Message Passing Framework for Spatial GNNs}
+    \begin{itemize}
+        \item At layer \( t \), each node \( i \) aggregates features from its neighbors \( \mathcal{N}(i) \).
+        \[
+        \mathbf{m}_i^{(t+1)} = \text{AGGREGATE}^{(t)} \left( \left\{ \mathbf{h}_j^{(t)} : j \in \mathcal{N}(i) \right\} \right)
+        \]
+        \item Node \( i \) then updates its own features based on the aggregated message:
+        \[
+        \mathbf{h}_i^{(t+1)} = \text{UPDATE}^{(t)} \left( \mathbf{h}_i^{(t)}, \mathbf{m}_i^{(t+1)} \right)
+        \]
+        \item Flexible, adaptable to dynamic graphs, as they only require local neighborhood information.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Message Passing Diagram}
+
+    \input{img/mpnn.tex}
+
+\end{frame}
+
+
+\begin{frame}{GraphSAGE: Sampling and Aggregation}
+    \begin{itemize}
+        \item GraphSAGE \cite{hamilton2017inductive} computes node embeddings by sampling and aggregating neighbor features.
+        \item Various aggregation functions (e.g., mean, LSTM-based, pooling) allow flexibility for large graphs.
+        \item Supports inductive learning by enabling embeddings for unseen nodes.
+        \item Advantages:
+            \begin{itemize}
+                \item Inductive capability for new nodes.
+                \item More scalable than spectral-based GNNs for large graphs.
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Graph Attention Networks (GAT)}
+    \begin{itemize}
+        \item GAT \cite{velickovic2017graph} introduces attention mechanisms to learn different weights for neighbors.
+        \item Attention coefficient between nodes \( i \) and \( j \):
+        \[
+        c_{ij} = \phi_1 \left( \mathbf{a}^T \left[ W \mathbf{h}_i \, || \, W \mathbf{h}_j \right] \right)
+        \]
+        \item Attention coefficients normalized using softmax:
+        \[
+        \alpha_{ij} = \frac{\exp(c_{ij})}{\sum_{k \in \mathcal{N}(i)} \exp(c_{ik})}
+        \]
+        \item Final feature update with weighted aggregation:
+        \[
+        \mathbf{h}_i' = \phi_2 \left( \sum_{j \in \mathcal{N}(i)} \alpha_{ij} \mathbf{W} \mathbf{h}_j \right)
+        \]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{GAT Diagram}
+    \input{img/gat_layer.tex}
+
+\end{frame}
+
+\begin{frame}{Benefits of Spatial-based GNNs}
+    \begin{itemize}
+        \item Localized computation makes spatial GNNs efficient for large, dynamic graphs.
+        \item No dependency on the global graph structure, unlike spectral methods.
+        \item Attention mechanisms allow fine-tuned aggregation, useful for complex relational data.
+        \item Applications in social networks, recommendation systems, and knowledge graphs.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Limitations of Spatial-based GNNs}
+    \begin{itemize}
+        \item Aggregation methods can oversimplify node information, leading to potential loss of unique node features.
+        \item Spatial-based GNNs struggle with long-range dependencies due to limited neighborhood scope.
+        \item May suffer from over-smoothing, where repeated aggregations make node representations indistinguishable.
+        \item High memory and computation costs when aggregating large numbers of neighbors, especially for high-degree nodes.
+        \item Lack of global context can limit performance on tasks requiring global structural information.
+    \end{itemize}
+\end{frame}

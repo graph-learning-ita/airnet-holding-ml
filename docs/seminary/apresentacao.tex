@@ -8,20 +8,43 @@
 \usepackage{listings}
 \usepackage{tikz}
 \usepackage{array}
-\usepackage{xcolor, soul}  
+\usepackage{xcolor, soul}
 \usepackage{mathtools}
+
+\usepackage{fontawesome5}
+
+
 
 
 \usepackage{listings}% http://ctan.org/pkg/listings
 \usepackage{graphbox}
 \usepackage{booktabs}
-\usepackage{aircraftshapes}
+\usetikzlibrary{positioning}
+
 \newcommand{\destaq}[1]{\textcolor{BlueViolet}{\textbf{#1}}}
 \newcommand\todo[1]{\colorbox{green}{#1}}
 
-\definecolor{greenMW}{rgb}{0.0, 0.75, 0.0} % Define the greenMW color
-\definecolor{orange}{rgb}{1.0, 0.65, 0.0} % Define the orange color
-\definecolor{blue}{rgb}{0.0, 0.0, 1.0} % Define the blue color
+\definecolor{echodrk}{HTML}{0099cc}
+\definecolor{olivegreen}{rgb}{0,0.6,0}
+\definecolor{camdrk}{RGB}{0,62,114}
+
+\usetikzlibrary{arrows,shapes,arrows.meta}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\usetikzlibrary{arrows,shapes, decorations.pathmorphing,backgrounds,positioning}
+
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+
+\tikzstyle{vertex}=[circle,fill=black!25,minimum size=20pt,inner sep=0pt]
+\tikzstyle{selected vertex} = [vertex, fill=red!24]
+\tikzstyle{select vertex} = [vertex, fill=blue!24]
+\tikzstyle{selectx vertex} = [vertex, fill=green!24]
+\tikzstyle{edge} = [draw,thick,-]
+\tikzstyle{selected edge} = [draw,line width=5pt,-,red!50]
 
 
 % The title of the presentation:
@@ -38,8 +61,8 @@
 %  - again first a short version to be displayed at the bottom;
 %  - next the full list of authors, which may include contact information;
 \author[Jorge Luiz Franco]{Jorge Luiz Franco\\ \bigskip
-\textsc{Undergraduate Program in Computer Science}\\ \bigskip
-Advisor: Prof. Filipe Alves Neto Verri, Ph.D.}
+\textsc{Complex Networks for Computer Science}\\ \bigskip
+Professor: Diego Amancio, Ph.D.}
 
 % \\ \bigskip
     % \large{}
@@ -53,7 +76,7 @@ Advisor: Prof. Filipe Alves Neto Verri, Ph.D.}
 % Add a date and possibly the name of the event to the slides
 %  - again first a short version to be shown at the bottom of each slide
 %  - second the full date and event name for the title slide
-\date[2024]{\footnotesize{June 17, 2024}}
+\date[2024]{\footnotesize{Nov 3, 2024}}
 
 \sloppy
 
@@ -65,16 +88,16 @@ Advisor: Prof. Filipe Alves Neto Verri, Ph.D.}
 }
 
 \begin{document}
-    
+
     \begin{frame}[plain]
         \titlepage
     \end{frame}
-    
+
     \begin{frame}
       \frametitle{Summary}
       \tableofcontents
     \end{frame}
-    
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Introduction
@@ -92,12 +115,14 @@ Advisor: Prof. Filipe Alves Neto Verri, Ph.D.}
 
 \include{tex/01-intro}
 
-\include{tex/02-problem_description}
+\include{tex/02-spectral}
 
-\include{tex/03-methods}
+\include{tex/03-spatial}
+
+% \include{tex/03-methods}
 
 
-\include{tex/04-results}
+% \include{tex/04-results}
 
 \include{tex/05-conclusion_future}
 
@@ -109,7 +134,7 @@ Advisor: Prof. Filipe Alves Neto Verri, Ph.D.}
 \begin{frame}[allowframebreaks]
   \frametitle{References}
   \bibliographystyle{siam}
-  
+
   \bibliography{refs.bib}
 \end{frame}
 

@@ -1,55 +1,39 @@
-\section{Conclusion and Future Works}
+\section{Conclusion}
 
-\begin{frame}{Conclusion}
-
-\destaq{Advancements}
-
-\begin{itemize}
-    \item  Addressing the Last Mile Delivery Drones problem through a MAPF approach ;
-    \item Ensuring collision avoidance and efficient airspace control.
-    \item Significant advancement over previous algorithms with guaranteed finite and bounded polynomial time convergence for the heuristic
-\end{itemize}
-
-\bigskip
-
-\destaq{Limitations}
-
-\begin{itemize}
-    \item Does not address real world problems like energy, fuel and speed of the drones;
-    \item The experiment using binary search to find the T for the MILP in $\mathcal{O}( \log( T)$) is not conducted;
-    \item Small grid sizes in experiments;
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}{Future Works}
-    \begin{figure}
-      \begin{columns}
-        \column{.23\linewidth}
-        \caption{Tradable Permit Model in the Decentralized LMDD. \\ Source: \cite{Verri}}
-        \label{fig:trad_drones}
-        \column{.75\linewidth}
-        \includegraphics[width=\textwidth]{img/trad_drones-pdf-jpg-to-pdf.pdf}
-      \end{columns}
-    \end{figure}
-
-\end{frame}
-
-
-\begin{frame}{Future Works}
-\destaq{Decentralized Model from \cite{Verri}}
-\begin{itemize}
-    \item naive agents
-    \item greedy random choices
-\end{itemize}
-\bigskip
-\destaq{Decentralized Model with Intelligence}
-\begin{itemize}
-    \item Reinforcement Learning
-    \item Graph Dynamical System
+\begin{frame}{Conclusion: Spectral GNNs}
     \begin{itemize}
-        \item Complex Networks
-        \item Graph Neural Networks
+        \item \destaq{Spectral GNNs:}
+        \begin{itemize}
+            \item Best suited for capturing global, structural patterns and long-range dependencies in fixed networks.
+            \item Works well in applications where the relationships span across the graph, making full use of spectral decomposition.
+            \item \textbf{Example:} In biological networks like protein interactions, where complex, long-range dependencies are critical, spectral GNNs can effectively capture these intricate patterns.
+        \end{itemize}
     \end{itemize}
-\end{itemize}
+\end{frame}
+
+\begin{frame}{Conclusion: Graph Attention Networks (GAT)}
+    \begin{itemize}
+        \item \destaq{Graph Attention Networks (GAT):}
+        \begin{itemize}
+            \item Highly effective for tasks with localized, node-to-neighbor interactions, especially when directionality and edge features are important.
+            $$ \alpha_{ij} = \sigma(\phi_1( \mathbf{a}^T [ W h_i || W h_j || W_2 e_{ij} ])) \; \text{where } e_{ij} \; \text{are edge features}$$
+            \item The attention mechanism in GAT allows for selective focus on relevant neighboring nodes, making it ideal for relational data.
+            \item \textbf{Example:} In airport flight networks, where each flight has unique characteristics (e.g., weather, fuel) and directionality matters, GAT can leverage these edge features for enhanced predictive accuracy.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Airport Network: GAT application}
+
+    \input{img/airport_graph.tex}
+\end{frame}
+
+\begin{frame}{Choosing the Right Model}
+    \begin{itemize}
+        \item \textbf{Spectral GNNs:} Suitable for applications requiring a deep understanding of global structures and where long-range relationships play a crucial role.
+        \item \textbf{GAT:} Ideal for applications with localized interactions and rich edge features, especially in directed, dynamic networks.
+    \end{itemize}
+    \begin{block}{Key Insight}
+        The decision between using Spectral GNNs or GAT largely depends on the graph's structure and the task's requirements. Spectral GNNs capture global connectivity patterns, while GAT's attention mechanism makes it better suited for applications where direction and edge-specific information are essential.
+    \end{block}
 \end{frame}

@@ -1,0 +1,95 @@
+\section{Spectral GNNs}
+
+\begin{frame}{Spectral GNNs}
+    \destaq{Introduction to Spectral GNNs}
+    \begin{itemize}
+        \item Spectral Graph Neural Networks derived from GSP principles.
+        \item \textbf{Key Concept}: Graph Laplacian $\mathcal{L} = D - A$ (degree matrix $D$ and adjacency matrix $A$) captures graph structure, enabling spectral operations analogous to Fourier transforms.
+        \item Objective: Represent node features as signals on a graph.
+        \item Spectral Methods:
+        \begin{itemize}
+            \item \textbf{Eigenvalue-based}: Filters created in Fourier domain.
+            \item \textbf{Eigenvector-based}: Decomposition of signals via spectral basis \cite{bo2023surveyspectralgraphneural}.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Spectral CNN (SCNN)}
+    \destaq{First Spectral GNN - Spectral CNN (SCNN)}
+    \begin{itemize}
+        \item \textbf{Concept}: Transforms CNN concepts from images to graphs.
+        \item \textbf{Mathematics}:
+        \begin{itemize}
+            \item Graph Fourier Transform: $\hat{f} = U^T f$
+            \item Convolution: $g_{\theta} \star f = U g_{\theta} U^T f$, where $U$ and $\Lambda$ are derived from $\mathcal{L} = U \Lambda U^T$.
+            \item \textbf{Challenges}:
+            \begin{itemize}
+                \item High computational cost $\mathcal{O}(n^3)$.
+                \item Non-localized eigenvectors can overshadow local details \cite{bruna2013spectral}.
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Graph Laplacian Spectra}
+    \begin{figure}
+      \begin{columns}
+        \column{.3\linewidth}
+        \caption{Eigenvectors as signals denotes nodal regions of eigenvalues of the graph Laplacian.}
+        \label{fig:graph_spectra}
+        \column{.65\linewidth}
+        \includegraphics[width=\textwidth]{img/graph_spectra.png}
+      \end{columns}
+    \end{figure}
+
+\end{frame}
+
+
+\begin{frame}{ChebNet}
+    \destaq{ChebNet - Addressing SCNN Limitations}
+    \begin{itemize}
+        \item \textbf{Introduction of Chebyshev Polynomials}:
+        \begin{itemize}
+            \item Approximates spectral filters for reduced computational demands using Chebyshev polynomials.
+            \item Defines filters as: $ g_{\theta}(\mathcal{L} ) f = \sum_{k=0}^{K-1} \theta_k T_k(\widetilde{\mathcal{L}}) f $.
+            \item Scaled Laplacian: $\widetilde{\mathcal{L}} = 2 \frac{\mathcal{L}}{\lambda_\text{max}} - I_n$.
+        \end{itemize}
+        \item \textbf{Advantages}:
+        \begin{itemize}
+            \item \textbf{Scalability}: Only first eigenpair needed ($\mathcal{O}(n^2)$ via power method).
+            \item \textbf{Localized Filtering}: $K$-localized for $K^{th}$-order polynomial filters, representing paths up to length $K$ \cite{defferrard2016convolutional}.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Graph Convolutional Networks (GCNs)}
+    \destaq{Graph Convolutional Networks (GCNs) - A Simplified Approach}
+    \begin{itemize}
+        \item \textbf{GCN Concept}:
+        \begin{itemize}
+            \item Rooted in Chebyshev expansion truncation ($K=1$), focusing on first-order neighbors.
+            \item Propagation Rule: $g_{\theta} \star f \approx \theta (I_n + \widetilde{A}) f$ with $\widetilde{A} = D^{-\frac{1}{2}} A D^{-\frac{1}{2}}$.
+        \end{itemize}
+        \item \textbf{Benefits}:
+        \begin{itemize}
+            \item Simplifies computation while remaining effective.
+            \item Often categorized as a spatial method due to neighborhood aggregation \cite{kipf2016semi}, \cite{wu2019simplifying}.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{GCN diagram}
+    \input{img/gcn.tex}
+\end{frame}
+
+\begin{frame}{Limitations of Spectral Methods}
+    \destaq{Limitations of Spectral Methods}
+    \begin{itemize}
+        \item Restriction: Spectral GNNs typically work only on undirected graphs as they rely on symmetric spectral decomposition.
+
+        \item Scalability: GCNs apart, spectral methods tend to be computationally expensive for large graphs.
+
+        \item The nature of the adjacency matrix enforces `node-centric' approaches that may not be suitable for all tasks.
+
+    \end{itemize}
+\end{frame}
