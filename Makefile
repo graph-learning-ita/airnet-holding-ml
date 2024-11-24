@@ -59,17 +59,17 @@ coverage:
 
 tcc:
 	make clean
-	cd docs/tcc && latexmk -shell-escape -pdf -file-line-error 1_main.tex
+	cd docs/tcc && latexmk -shell-escape -interaction=nonstopmode -f -pdf -file-line-error 1_main.tex
 	make clean
 
 tcc-presentation:
 	make clean
-	cd docs/tcc-presentation && latexmk -shell-escape -pdf -file-line-error apresentacao.tex
+	cd docs/tcc-presentation && latexmk -interaction=nonstopmode -f -shell-escape -pdf -file-line-error apresentacao.tex
 	make clean
 
 seminary:
 	make clean
-	cd docs/seminary && latexmk -shell-escape -pdf -file-line-error apresentacao.tex
+	cd docs/seminary && latexmk -shell-escape -interaction=nonstopmode -f -pdf -file-line-error apresentacao.tex
 	make clean
 
 clean:
