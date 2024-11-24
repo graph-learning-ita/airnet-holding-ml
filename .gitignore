@@ -183,5 +183,9 @@ docs/**/*.glg
 docs/**/*.gls
 docs/**/*.ilg
 docs/**/*.ind
+docs/**/*.out
+docs/**/*.nav
+docs/**/*.snm
 notebooks/catboost_info
 **/*.out.ps
+**/auto/*.el
