@@ -116,9 +116,11 @@
 \hspace{-2.5pt}}
 \newcommand{\wontfix}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
 
-%% CORREÇÕES PARA ADAPTAÇÃO PARA ARTIGO
-\newcommand{\chapter}{\part}
-\newcommand{\citeonline}{\cite}
+%% MANOEL: CORREÇÕES PARA ADAPTAÇÃO PARA ARTIGO
+\let\chapter\section
+\let\section\subsection
+\let\citeonline\cite
+\renewcommand{\refname}{\chapter{References}}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -144,7 +146,7 @@
 %% for the whole article with \linenumbers.
 %% \usepackage{lineno}
 
-%% REMOVE PREPRINT NOTE TO THE FRONTPAGE
+%% MANOEL: REMOVE PREPRINT NOTE TO THE FRONTPAGE
 \makeatletter
 \def\ps@pprintTitle{%
   \let\@oddhead\@empty
