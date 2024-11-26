@@ -35,6 +35,8 @@
 %% elsarticle.cls. If you prefer to use the old commands
 %% please give \usepackage{epsfig}
 
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
 \usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
 \usepackage[utf8]{inputenc}		% Codificação do documento (conversão automática dos acentos)
 \usepackage{lmodern}			% Usa a fonte Latin Modern
@@ -57,7 +59,6 @@
 \usepackage[absolute]{textpos} % Pacote permite o posicionamento do texto
 \usepackage{eso-pic}           % Pacote para incluir imagem de fundo
 \usepackage{makebox}           % Pacote para criar caixa de texto
-
 \usepackage{graphicx}
 \usepackage{graphbox}
 \usepackage{tasks}
@@ -119,8 +120,10 @@
 %% MANOEL: CORREÇÕES PARA ADAPTAÇÃO PARA ARTIGO
 \let\chapter\section
 \let\section\subsection
-\let\citeonline\cite
+\let\cite\citep
+\let\citeonline\citealp
 \renewcommand{\refname}{\chapter{References}}
+
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -195,16 +198,16 @@
 \title{Graph machine learning for flight delay prediction due to
     holding manouver} %% Article title
 
-\affiliation[label1]{organization={Instituto Tecnológico de Aeronáutica},
+\affiliation[1]{organization={Instituto Tecnológico de Aeronáutica},
                addressline={Praça Marechal Eduardo Gomes, 50 - Vila das Acácias},
                city={São José dos Campos},
                postcode={12228-900},
                state={São Paulo},
                country={Brazil}}
 
-\author[label1]{Manoel Vilela Machado Neto}
-\author[label1]{Jorge Luiz Franco}
-\author[label1]{Felipe Alves Neto Verri}
+\author[1]{Manoel Vilela Machado Neto}
+\author[1]{Jorge Luiz Franco}
+\author[1]{Felipe Alves Neto Verri}
 
 
 % Abstract
@@ -260,7 +263,6 @@ reducing delays, and improving passenger experience.
 
 \end{frontmatter}
 % Seleciona o idioma do documento (conforme pacotes do babel)
-%\selectlanguage{brazil}
 % Se o idioma do texto for inglês, inclua uma % antes do
 %      comando \selectlanguage{brazil} e
 %      retire a % antes do comando abaixo
@@ -299,8 +301,6 @@ reducing delays, and improving passenger experience.
 \include{6_materialsAndMethods}
 
 \include{7_results}
-% ---
-\FloatBarrier
 
 % -----------------------------------------------------------
 % Referências bibliográficas
