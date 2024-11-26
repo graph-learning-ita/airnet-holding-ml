@@ -1,25 +1,60 @@
 \section[Graph Attention Network]{Graph Attention Network}
 \label{Graph Attention Network}
 
-As we previously described, the GAT model in section \ref{spatial-based} has a large range of applications, from drug discovery to fake news detection \cite{keywordsCaravanti}. The GAT model leverages the underlying graph structure but does not rely on explicitly computed graph-derived features like the CatBoost model does. Instead, it learns node representations in an end-to-end manner, enabling the model to capture the relationships between airports and flights directly from the data.
+As we previously described, the GAT model in section
+\ref{spatial-based} has a large range of applications, from drug
+discovery to fake news detection \cite{keywordsCaravanti}. The GAT
+model leverages the underlying graph structure but does not rely on
+explicitly computed graph-derived features like the CatBoost model
+does. Instead, it learns node representations in an end-to-end manner,
+enabling the model to capture the relationships between airports and
+flights directly from the data.
 
-The modelling of a GNN for our problem is a challenging task, as we have to adapt the model to predict edge features, since `holding' is an edge feature in our setting. In section \ref{spectral-based} we detailed why the spectral-based GNNs are not suitable for our setting, as they are not able to handle edge features and direction, due to their `node-centric' approach based on the adjacency matrix. Although spatial-based GNNs can handle direction in their majority, they are not able to handle edge features in general, since they need to create a way to aggregate the edge features with the neighbors' features.
+The modelling of a GNN for our problem is a challenging task, as we
+have to adapt the model to predict edge features, since `holding' is
+an edge feature in our setting. In section \ref{spectral-based} we
+detailed why the spectral-based GNNs are not suitable for our setting,
+as they are not able to handle edge features and direction, due to
+their `node-centric' approach based on the adjacency matrix. Although
+spatial-based GNNs can handle direction in their majority, they are
+not able to handle edge features in general, since they need to create
+a way to aggregate the edge features with the neighbors' features.
 
-The GAT model is so used because it is highly adaptable in pratically any graph setting. As we will show, the attention mechanism detailed in section \ref{spatial-based} can be generalized to handle edge features, and the model can be adapted to predict edge features. In fact, a simple concatenation ($ || $) in the attention formula already gives us this power
-,
+The GAT model is so used because it is highly adaptable in pratically
+any graph setting. As we will show, the attention mechanism detailed
+in section \ref{spatial-based} can be generalized to handle edge
+features, and the model can be adapted to predict edge features. In
+fact, a simple concatenation ($ || $) in the attention formula already
+gives us this power ,
 
 $$ \alpha_{ij} = \sigma(\phi_1( \mathbf{a}^T [ W h_i || W h_j || W_2 e_{ij} ])) \; \; \text{,}$$
-  
-  where $e_{ij}$ are the edge features, $h_i$ and $h_j$ are the node features, and $W$ and $W_2$ are the weight matrices. This formula allows the model to focus on the relevant neighboring nodes, making it ideal for relational data. In our case, the edge features are the tabular data features with holding being part of them, which is the target we want to predict. This mechanism is demonstrated in Figure \ref{fig:gat_layer}.
+
+  where $e_{ij}$ are the edge features, $h_i$ and $h_j$ are the node
+  features, and $W$ and $W_2$ are the weight matrices. This formula
+  allows the model to focus on the relevant neighboring nodes, making
+  it ideal for relational data. In our case, the edge features are the
+  tabular data features with holding being part of them, which is the
+  target we want to predict. This mechanism is demonstrated in Figure
+  \ref{fig:gat_layer}.
 
 
 \input{img/gat_layer.tex}
 
-Furthermore, the directed multigraph setting we described in section \ref{sec:catboost_model} is not a problem for the GAT model, since it can handle multiple edges between the same pair of nodes, as we will show in the following sections. We show how we model the GAT to be a directed multigraph representing the flights and their features in Figure \ref{fig:multigraph_layer}.
+Furthermore, the directed multigraph setting we described in section
+\ref{sec:catboost_model} is not a problem for the GAT model, since it
+can handle multiple edges between the same pair of nodes, as we will
+show in the following sections. We show how we model the GAT to be a
+directed multigraph representing the flights and their features in
+Figure \ref{fig:multigraph_layer}.
 
 
 \input{img/multigraph_layer.tex}
 
-Finally, the last layer of our predictor would be to pass the learned node embeddings $h_i$ and $h_j$ with the edge feature $e_{ij}^{(k)}$ of the flight $k$ to a fully connected layer (MLP) to predict the holding of the flight $k$.   That is, we simply concatenate them, and after the MLP layer, we have a sigmoid $\sigma$ activation function that outputs the prediction $\hat{y}_k$ of holding,
+Finally, the last layer of our predictor would be to pass the learned
+node embeddings $h_i$ and $h_j$ with the edge feature $e_{ij}^{(k)}$
+of the flight $k$ to a fully connected layer (MLP) to predict the
+holding of the flight $k$.  That is, we simply concatenate them, and
+after the MLP layer, we have a sigmoid $\sigma$ activation function that
+outputs the prediction $\hat{y}_k$ of holding,
 
 $$ \hat{y}_k = \sigma (\text{MLP}(h_i || h_j || e_{ij}^{(k)})) \; \; \; \text{.} $$

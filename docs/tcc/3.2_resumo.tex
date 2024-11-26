@@ -1,21 +1,46 @@
 %% USPSC-Resumo.tex
-\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo		
+\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do
+resumo
 \begin{resumo}
-	\begin{flushleft} 
-			\setlength{\absparsep}{0pt} % ajusta o espaçamento da referência	
-			\SingleSpacing 
-			\imprimirautorabr~~\textbf{\imprimirtituloresumo}.	\imprimirdata. \pageref{LastPage}p. 
-			%Substitua p. por f. quando utilizar oneside em \documentclass
-			%\pageref{LastPage}f.
-			\imprimirtipotrabalho~-~\imprimirinstituicao, \imprimirlocal, \imprimirdata. 
- 	\end{flushleft}
-\OnehalfSpacing 	
+  \begin{flushleft}
+    \setlength{\absparsep}{0pt} % ajusta o espaçamento da
+    referência \SingleSpacing
+    \imprimirautorabr~~\textbf{\imprimirtituloresumo}. \imprimirdata. \pageref{LastPage}p.
+    % Substitua p. por f. quando utilizar oneside em
+    % \documentclass \pageref{LastPage}f.
+    \imprimirtipotrabalho~-~\imprimirinstituicao,
+    \imprimirlocal, \imprimirdata.
+  \end{flushleft} \OnehalfSpacing
 
-Este projeto modela a previsão de atrasos de voo devido a manobras de espera como um problema de grafo, aproveitando técnicas avançadas de Aprendizado de Máquina com Grafos (Graph ML) para capturar interdependências complexas em redes de tráfego aéreo. Manobras de espera, embora essenciais para a segurança, causam aumento no uso de combustível, emissões e insatisfação dos passageiros, tornando a previsão precisa essencial para a eficiência operacional. Modelos tradicionais de aprendizado de máquina, que geralmente utilizam dados tabulares, muitas vezes não consideram as relações espaço-temporais nos dados de tráfego aéreo. Para abordar essa questão, modelamos o problema da previsão de espera como uma predição de características de arestas em um (multi)grafo direcionado, onde aplicamos tanto o CatBoost, enriquecido com características de grafo que capturam centralidade e conectividade da rede, quanto Graph Attention Networks (GATs), que são eficazes em contextos de dados relacionais. Nossos resultados indicam que o CatBoost supera o GAT nesse conjunto de dados desbalanceado, prevendo eficazmente eventos de espera e oferecendo interpretabilidade por meio da importância dos recursos baseados em grafo. Além disso, uma ferramenta web chamada Airdelay permite que os usuários simulem previsões de atraso em tempo real, demonstrando o impacto operacional potencial do modelo. Esta pesquisa destaca a viabilidade de abordagens baseadas em grafos para análise preditiva na aviação, com implicações para aumentar a eficiência do combustível, reduzir atrasos e melhorar a experiência do passageiro.
+  Este projeto modela a previsão de atrasos de voo devido a manobras de
+  espera como um problema de grafo, aproveitando técnicas avançadas de
+  Aprendizado de Máquina com Grafos (Graph ML) para capturar
+  interdependências complexas em redes de tráfego aéreo. Manobras de
+  espera, embora essenciais para a segurança, causam aumento no uso de
+  combustível, emissões e insatisfação dos passageiros, tornando a
+  previsão precisa essencial para a eficiência operacional. Modelos
+  tradicionais de aprendizado de máquina, que geralmente utilizam dados
+  tabulares, muitas vezes não consideram as relações espaço-temporais
+  nos dados de tráfego aéreo. Para abordar essa questão, modelamos o
+  problema da previsão de espera como uma predição de características de
+  arestas em um (multi)grafo direcionado, onde aplicamos tanto o
+  CatBoost, enriquecido com características de grafo que capturam
+  centralidade e conectividade da rede, quanto Graph Attention Networks
+  (GATs), que são eficazes em contextos de dados relacionais. Nossos
+  resultados indicam que o CatBoost supera o GAT nesse conjunto de dados
+  desbalanceado, prevendo eficazmente eventos de espera e oferecendo
+  interpretabilidade por meio da importância dos recursos baseados em
+  grafo. Além disso, uma ferramenta web chamada Airdelay permite que os
+  usuários simulem previsões de atraso em tempo real, demonstrando o
+  impacto operacional potencial do modelo. Esta pesquisa destaca a
+  viabilidade de abordagens baseadas em grafos para análise preditiva na
+  aviação, com implicações para aumentar a eficiência do combustível,
+  reduzir atrasos e melhorar a experiência do passageiro.
 
-\vspace{\onelineskip}
+  \vspace{\onelineskip}
 
-\noindent \textbf{Palavras-chave}: Redes Neurais de Grafos. Grafos. Aprendizado de Máquina. Redes Complexas.
+  \noindent \textbf{Palavras-chave}: Redes Neurais de
+  Grafos. Grafos. Aprendizado de Máquina. Redes Complexas.
 
 
 \end{resumo}
