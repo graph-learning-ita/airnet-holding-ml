@@ -59,7 +59,17 @@ coverage:
 
 tcc:
 	make clean
-	cd docs/tcc && latexmk -shell-escape -interaction=nonstopmode -f -pdf -file-line-error 1_main.tex
+	cd docs/tcc && latexmk -shell-escape -interaction=nonstopmode -f -pdf -file-line-error 1_main.tex || true
+	make clean
+
+article:
+	make clean
+	cd docs/article && TEXINPUTS=".:tcc:" latexmk -shell-escape -interaction=nonstopmode -f -pdf -file-line-error article.tex || true
+	make clean
+
+article-watch:
+	make clean
+	cd docs/article && TEXINPUTS=".:tcc:" latexmk -pvc -shell-escape -interaction=nonstopmode -f -pdf -file-line-error article.tex
 	make clean
 
 tcc-presentation:
@@ -69,26 +79,18 @@ tcc-presentation:
 
 seminary:
 	make clean
-	cd docs/seminary && latexmk -shell-escape -interaction=nonstopmode -f -pdf -file-line-error apresentacao.tex
+	cd docs/seminary && latexmk -shell-escape -interaction=nonstopmode -f -pdf -file-line-error apresentacao.tex || true
 	make clean
 
 clean:
 	@echo -n "Limpando arquivos auxiliares...\n"
-	@cd docs/tcc && rm -v -f *.out *.aux *.alg *.acr *.dvi *.gls \
-		*.log *.bbl *.blg *.ntn *.not *.lof \
-		*.lot *.toc *.loa *.lsg *.nlo *.nls \
-		*.ilg *.lol *.ind *.ist *.glg *.glo *.xdy *.acn *.idx *.loq *~ \
-		*.bcf *.nav *.run.xml *.snm *.fdb_latexmk *.fls
-	@cd docs/seminary && rm -v -f *.out *.aux *.alg *.acr *.dvi *.gls \
-		*.log *.bbl *.blg *.ntn *.not *.lof \
-		*.lot *.toc *.loa *.lsg *.nlo *.nls \
-		*.ilg *.lol *.ind *.ist *.glg *.glo *.xdy *.acn *.idx *.loq *~ \
-		*.bcf *.nav *.run.xml *.snm *.fdb_latexmk *.fls
-	@cd docs/tcc-presentation && rm -v -f *.out *.aux *.alg *.acr *.dvi *.gls \
-		*.log *.bbl *.blg *.ntn *.not *.lof \
-		*.lot *.toc *.loa *.lsg *.nlo *.nls \
-		*.ilg *.lol *.ind *.ist *.glg *.glo *.xdy *.acn *.idx *.loq *~ \
-		*.bcf *.nav *.run.xml *.snm *.fdb_latexmk *.fls
+	cd docs && find . -type f \( -name "*.out" -o -name "*.aux" -o -name "*.alg" -o -name "*.acr" -o -name "*.dvi"  \
+				-o -name "*.log" -o -name "*.bbl" -o -name "*.blg" -o -name "*.ntn" -o -name "*.not" -o -name "*.lof" \
+				-o -name "*.lot" -o -name "*.toc" -o -name "*.loa" -o -name "*.lsg" -o -name "*.nlo" -o -name "*.nls" \
+				-o -name "*.ilg" -o -name "*.lol" -o -name "*.ind" -o -name "*.ist" -o -name "*.glg" -o -name "*.glo" \
+				-o -name "*.xdy" -o -name "*.acn" -o -name "*.idx" -o -name "*.loq" -o -name "*~" -o -name "*.gls" \
+				-o -name "*.bcf" -o -name "*.nav" -o -name "*.run.xml" -o -name "*.snm" -o -name "*.fdb_latexmk" -o -name "*.fls" \) \
+                | xargs rm -vf
 	@echo "Processo finalizado com sucesso!"
 
 
