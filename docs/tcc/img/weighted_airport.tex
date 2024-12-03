@@ -1,44 +1,44 @@
 \begin{figure}[h]
-    \centering
-    \begin{tikzpicture}[
-        ->, % directed edges
-        >=stealth, % arrow tip style
-        node distance=4cm, % distance between nodes
-        airport/.style={circle, draw, minimum size=2cm, font=\Large}, % style for airports
-        flight/.style={font=\small, scale=0.8} % smaller size for flights
+  \centering
+  \begin{tikzpicture}[
+    ->, % directed edges
+    >=stealth, % arrow tip style
+    node distance=4cm, % distance between nodes
+    airport/.style={circle, draw, minimum size=2cm, font=\Large}, % style for airports
+    flight/.style={font=\small, scale=0.8} % smaller size for flights
     ]
-    
+
     % Multigraph (Left Side)
     \node[airport] (A1) {SP \\ \faPlaneDeparture}; % São Paulo with departure icon
     \node[airport] (B1) [right of=A1] {RJ \\ \faPlaneDeparture}; % Rio de Janeiro with departure icon
     \node[airport] (C1) [below of=A1, yshift=-1cm] {MG \\ \faPlaneDeparture}; % Minas Gerais with departure icon
-    
+
     % Multiple flights in the multigraph (non-intersecting paths)
     \draw[->] (A1) to[bend left=20] node[flight, near start] {\tikz[baseline]{\node[rotate=0, scale=0.7]{\faPlane};}} (B1); % Flight 1 from SP to RJ
     \draw[->] (A1) to[bend left=40] node[flight, near start] {\tikz[baseline]{\node[rotate=0, scale=0.7]{\faPlane};}} (B1); % Flight 2 from SP to RJ
     \draw[->] (A1) to[bend left=60] node[flight, near start] {\tikz[baseline]{\node[rotate=0, scale=0.7]{\faPlane};}} (B1); % Flight 3 from SP to RJ
-    
+
     \draw[->] (B1) to[bend right=20] node[flight, near start] {\tikz[baseline]{\node[rotate=270, scale=0.7]{\faPlane};}} (C1); % Flight 1 from RJ to MG
     \draw[->] (B1) to[bend right=40] node[flight, near start] {\tikz[baseline]{\node[rotate=270, scale=0.7]{\faPlane};}} (C1); % Flight 2 from RJ to MG
-    
+
     \draw[->] (C1) to[bend right=20] node[flight, near start] {\tikz[baseline]{\node[rotate=135, scale=0.7]{\faPlane};}} (A1); % Flight 1 from MG to SP
     \draw[->] (C1) to[bend right=40] node[flight, near start] {\tikz[baseline]{\node[rotate=135, scale=0.7]{\faPlane};}} (A1); % Flight 2 from MG to SP
     \draw[->] (C1) to[bend right=60] node[flight, near start] {\tikz[baseline]{\node[rotate=135, scale=0.7]{\faPlane};}} (A1); % Flight 3 from MG to SP
-    
+
     % Transformation arrow
     \node at ($(A1)!0.5!(B1)+(3.5,-2)$) {\Huge $\Rightarrow$};
-    
+
     % Weighted Graph (Right Side)
     \node[airport] (A2) [right=6cm of A1] {SP \\ \faPlaneDeparture}; % São Paulo airport (weighted graph)
     \node[airport] (B2) [right of=A2] {RJ \\ \faPlaneDeparture}; % Rio de Janeiro airport (weighted graph)
     \node[airport] (C2) [below of=A2, yshift=-1cm] {MG \\ \faPlaneDeparture}; % Minas Gerais airport (weighted graph)
-    
+
     % Weighted edges (single paths)
     \draw[->] (A2) to[bend left=20] node[flight, near end, yshift=0.3cm] { $W = 3$ \;} (B2); % Weighted edge from SP to RJ
     \draw[->] (B2) to[bend right=20] node[flight, near end, xshift=0.2cm] {\; \;\;\;\;\; \; $W = 2$  } (C2); % Weighted edge from RJ to MG
     \draw[->] (C2) to[bend right=20] node[flight, near end, xshift=-0.8cm] {  $W=3$  } (A2); % Weighted edge from MG to SP
-    
-    \end{tikzpicture}
-    \caption{Transformation of a multigraph of flights into a weighted directed graph. The multigraph (left) represents multiple flights between airports. In the weighted graph (right), edges are aggregated to show total flights as weights.}
-    \label{fig:multigraph_to_weighted_graph}
+
+  \end{tikzpicture}
+  \caption{Transformation of a multigraph of flights into a weighted directed graph. The multigraph (left) represents multiple flights between airports. In the weighted graph (right), edges are aggregated to show total flights as weights.}
+  \label{fig:multigraph_to_weighted_graph}
 \end{figure}
